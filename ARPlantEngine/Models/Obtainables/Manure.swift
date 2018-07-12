@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+//class Manure : Obtainable {
+//    
+//    // poziom nawozenia
+//    var manureLevel: Int
+//    
+//    init(manureLevel: Int) {
+//        self.manureLevel = 1
+//    }
+//    
+//}

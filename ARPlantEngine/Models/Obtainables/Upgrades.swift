@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class Upgrades: Obtainable {
+    
+    // upgrade'y pozwalajace np na zwiekszona odpornosc na zaraze, albo x2 bonus do roznych zmiennych na iles tam czasu
+}
