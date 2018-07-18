@@ -15,7 +15,7 @@ class ARVC: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     var counter:Float = 0.0
-    let testPlant = Plant.init(name: Plants.cactus)
+    let testPlant = Plant.instansce
     var updateTimer: Timer?
     var level = 0
     var lastNode: [SCNNode?] = []

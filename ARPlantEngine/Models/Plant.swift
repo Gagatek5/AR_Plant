@@ -10,7 +10,7 @@ import Foundation
 
 class Plant {
     
-   
+    static let instansce = Plant(name: .bonsai)
     // nazwa rosliny
     let name: Plants
     // procent nawodenienia
@@ -31,7 +31,7 @@ class Plant {
     var maxWatering: Int
     
     
-    init(name: Plants) {
+   private init(name: Plants) {
         self.name = name
         watering = 80
         health = 100
@@ -128,8 +128,8 @@ class Plant {
         case 0:
             result.append(PlantStatus.dead)
 
-        default:
-            0
+        default: break
+            
         }
         switch plant.health {
         case 80...100:
@@ -145,8 +145,8 @@ class Plant {
         case 0:
             result.append(PlantStatus.dead)
             
-        default:
-            0
+        default: break
+            
         }
         switch plant.pests.count {
         case 0:
