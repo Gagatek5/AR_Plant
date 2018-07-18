@@ -39,6 +39,7 @@
 		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
 		E276927420FCF6C00008FF00 /* ARVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVC.swift; sourceTree = "<group>"; };
 		E276927820FCF9E20008FF00 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		E276927A20FFA5090008FF00 /* ARPlantEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARPlantEngine.entitlements; sourceTree = "<group>"; };
 		E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testbackgroundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +73,7 @@
 		55FF2C8B20D5576F0060DB27 /* ARPlantEngine */ = {
 			isa = PBXGroup;
 			children = (
+				E276927A20FFA5090008FF00 /* ARPlantEngine.entitlements */,
 				55FF2C9820D557700060DB27 /* Info.plist */,
 				55FF2CA420D558E90060DB27 /* Resources */,
 				55FF2CA320D558DB0060DB27 /* ViewControllers */,
@@ -173,6 +175,9 @@
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -369,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ARPlantEngine/ARPlantEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NGH34MU357;
 				INFOPLIST_FILE = ARPlantEngine/Info.plist;
@@ -376,7 +382,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngine";
+				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ARPlantEngine/ARPlantEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NGH34MU357;
 				INFOPLIST_FILE = ARPlantEngine/Info.plist;
@@ -394,7 +401,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngine";
+				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
