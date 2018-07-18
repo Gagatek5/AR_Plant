@@ -57,6 +57,9 @@ class ViewController: UIViewController {
         updateView()
         
     }
+    @IBAction func dissmissView(_ sender: Any) {
+         dismiss (animated: true, completion: nil)  
+    }
     @IBAction func Watering(_ sender: Any) {
         testPlant.wateringPlant(plant: testPlant)
         updateView()
