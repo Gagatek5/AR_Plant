@@ -18,6 +18,9 @@
 		55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA820D5657B0060DB27 /* Obtainable.swift */; };
 		55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAB20D5675C0060DB27 /* Manure.swift */; };
 		55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAD20D567C90060DB27 /* Upgrades.swift */; };
+		E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E276927220FCF0EC0008FF00 /* ARView.storyboard */; };
+		E276927520FCF6C00008FF00 /* ARVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E276927420FCF6C00008FF00 /* ARVC.swift */; };
+		E276927920FCF9E20008FF00 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E276927820FCF9E20008FF00 /* Models.scnassets */; };
 		E2D985B620DFE7600046BBBE /* testbackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,10 @@
 		55FF2CA820D5657B0060DB27 /* Obtainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtainable.swift; sourceTree = "<group>"; };
 		55FF2CAB20D5675C0060DB27 /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
 		55FF2CAD20D567C90060DB27 /* Upgrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
+		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
+		E276927420FCF6C00008FF00 /* ARVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVC.swift; sourceTree = "<group>"; };
+		E276927820FCF9E20008FF00 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		E276927A20FFA5090008FF00 /* ARPlantEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARPlantEngine.entitlements; sourceTree = "<group>"; };
 		E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testbackgroundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +109,7 @@
 			children = (
 				55FF2C9520D557700060DB27 /* LaunchScreen.storyboard */,
 				55FF2C9020D5576F0060DB27 /* Main.storyboard */,
+				E276927220FCF0EC0008FF00 /* ARView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +120,7 @@
 				55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */,
 				55FF2C8E20D5576F0060DB27 /* ViewController.swift */,
 				E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */,
+				E276927420FCF6C00008FF00 /* ARVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				55FF2C9320D557700060DB27 /* Assets.xcassets */,
+				E276927820FCF9E20008FF00 /* Models.scnassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -169,6 +179,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -198,6 +211,8 @@
 			files = (
 				55FF2C9720D557700060DB27 /* LaunchScreen.storyboard in Resources */,
 				55FF2C9420D557700060DB27 /* Assets.xcassets in Resources */,
+				E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */,
+				E276927920FCF9E20008FF00 /* Models.scnassets in Resources */,
 				55FF2C9220D5576F0060DB27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FF2C8F20D5576F0060DB27 /* ViewController.swift in Sources */,
+				E276927520FCF6C00008FF00 /* ARVC.swift in Sources */,
 				55FF2CA720D55EAE0060DB27 /* Pests.swift in Sources */,
 				55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */,
 				5522A3CC20FE8E8B00C99720 /* UNService.swift in Sources */,
@@ -361,14 +377,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ARPlantEngine/ARPlantEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NGH34MU357;
 				INFOPLIST_FILE = ARPlantEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngine";
+				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,14 +396,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ARPlantEngine/ARPlantEngine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NGH34MU357;
 				INFOPLIST_FILE = ARPlantEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngine";
+				PRODUCT_BUNDLE_IDENTIFIER = "D-T.ARPlantEngines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
