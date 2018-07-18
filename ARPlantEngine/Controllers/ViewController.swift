@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pestsL: UILabel!
     @IBOutlet weak var riseL: UILabel!
     @IBOutlet weak var plantLevelL: UILabel!
-    let testPlant = Plant.init(name: Plants.cactus)
+   
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     
@@ -27,12 +27,13 @@ class ViewController: UIViewController {
         UNService.shared.authorize() 
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         setupNewPlant()
+        
         var timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
             (_) in
-            self.testPlant.watering -= 2
-            self.testPlant.rise = self.testPlant.riseUp(rise: self.testPlant.rise, plantStatus: self.testPlant.currentStatus(plant: self.testPlant))
-            self.testPlant.health = self.testPlant.updatingHealth(health: self.testPlant.health, plantStatus: self.testPlant.currentStatus(plant: self.testPlant))
-            self.testPlant.plantLevel = self.testPlant.levelUp(rise: self.testPlant.rise)
+            Plant.instansce.watering -= 2
+            Plant.instansce.rise = Plant.instansce.riseUp(rise: Plant.instansce.rise, plantStatus: Plant.instansce.currentStatus(plant: Plant.instansce))
+            Plant.instansce.health = Plant.instansce.updatingHealth(health: Plant.instansce.health, plantStatus: Plant.instansce.currentStatus(plant: Plant.instansce))
+            Plant.instansce.plantLevel = Plant.instansce.levelUp(rise: Plant.instansce.rise)
             self.updateView()
             self.triggerReminderNotification()
         }
@@ -61,17 +62,17 @@ class ViewController: UIViewController {
          dismiss (animated: true, completion: nil)  
     }
     @IBAction func Watering(_ sender: Any) {
-        testPlant.wateringPlant(plant: testPlant)
+        Plant.instansce.wateringPlant(plant: Plant.instansce)
         updateView()
     }
     func updateView(){
-        nameL.text = "Name:     " + testPlant.name.rawValue
-        wateringL.text = "Watering: " + String(testPlant.watering)
-        healthL.text = "Health:     " + String(testPlant.health)
-        insolationL.text = "Insolation: " + String(testPlant.insolation)
-        pestsL.text = "Peats:   " + String(testPlant.pests.count) + pestsLabelApender(pests: testPlant.pests)
-        riseL.text = "Rise:     " + String(testPlant.rise)
-        plantLevelL.text = "Plant level:    " + String(testPlant.plantLevel)
+        nameL.text = "Name:     " + Plant.instansce.name.rawValue
+        wateringL.text = "Watering: " + String(Plant.instansce.watering)
+        healthL.text = "Health:     " + String(Plant.instansce.health)
+        insolationL.text = "Insolation: " + String(Plant.instansce.insolation)
+        pestsL.text = "Peats:   " + String(Plant.instansce.pests.count) + pestsLabelApender(pests: Plant.instansce.pests)
+        riseL.text = "Rise:     " + String(Plant.instansce.rise)
+        plantLevelL.text = "Plant level:    " + String(Plant.instansce.plantLevel)
     }
     
     func pestsLabelApender(pests: [Pest]) -> String {
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
     }
     
     func triggerReminderNotification() {
-        if(testPlant.watering == 80) {
+        if(Plant.instansce.watering == 80) {
             UNService.shared.timerRequest(with: 10)
         }
     }
