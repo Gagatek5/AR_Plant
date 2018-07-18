@@ -31,12 +31,24 @@
                                     <action selector="addStalk:" destination="kg2-Uk-qnO" eventType="touchUpInside" id="Ppo-Fh-yhM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiX-dT-O3j">
+                                <rect key="frame" x="313" y="44" width="47" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ino-Be-Ed3"/>
+                                </constraints>
+                                <state key="normal" title="Engine"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="qmt-xP-k7f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6T9-SG-HRO" firstAttribute="centerX" secondItem="p9u-jN-7Bd" secondAttribute="centerX" id="02P-D5-j0v"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="leading" secondItem="l1c-dz-J6G" secondAttribute="leading" id="Gse-6E-6VL"/>
+                            <constraint firstItem="l1c-dz-J6G" firstAttribute="trailing" secondItem="HiX-dT-O3j" secondAttribute="trailing" constant="15" id="H8t-m3-Smc"/>
                             <constraint firstItem="6T9-SG-HRO" firstAttribute="bottom" secondItem="l1c-dz-J6G" secondAttribute="bottom" id="LqG-FT-NXe"/>
+                            <constraint firstItem="HiX-dT-O3j" firstAttribute="top" secondItem="l1c-dz-J6G" secondAttribute="top" id="Myc-Qi-oXh"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="trailing" secondItem="l1c-dz-J6G" secondAttribute="trailing" id="Svc-0e-Hjr"/>
                             <constraint firstAttribute="bottom" secondItem="8My-7b-AwX" secondAttribute="bottom" id="TnO-Dn-hWU"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="top" secondItem="p9u-jN-7Bd" secondAttribute="top" id="dHH-3g-esB"/>
@@ -50,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GW3-gg-Z4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-837.60000000000002" y="33.990147783251231"/>
+            <point key="canvasLocation" x="-884" y="35"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -128,11 +140,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDg-kt-Ud5">
+                                <rect key="frame" x="24" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WvF-Qr-Xwa"/>
+                                </constraints>
+                                <state key="normal" title="AR"/>
+                                <connections>
+                                    <action selector="dissmissView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5eU-OD-aao"/>
+                                    <segue destination="kg2-Uk-qnO" kind="show" id="Hhg-eI-hed"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
+                            <constraint firstItem="cDg-kt-Ud5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uy7-eg-Tkh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -36,7 +36,7 @@ class UNService: NSObject {
         content.title = "AR Plant - przypominajka!"
         content.body = "Odwiedz swoja roslinke! Nie zapomnij sie nia opiekowac! I pamietaj: BLYSKAWICA UDERZA DWA RAZY!"
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: true)
         let request = UNNotificationRequest(identifier: "userNotification.timer", content: content, trigger: trigger)
         
         unCenter.add(request)
