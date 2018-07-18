@@ -1,0 +1,6 @@
+framework module Pods_ARPlantEngine {
+  umbrella header "Pods-ARPlantEngine-umbrella.h"
+
+  export *
+  module * { export * }
+}
