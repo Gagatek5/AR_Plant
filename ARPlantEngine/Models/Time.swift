@@ -15,7 +15,7 @@ class Time
         var timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
             (_) in
             print("lol")
-            if self.testPlant.watering >= 0
+            if self.testPlant.watering - 2 >= 0
             {
                 self.testPlant.watering -= 2
             }

@@ -15,32 +15,45 @@ class Plant {
     let name: Plants
     // procent nawodenienia
     var watering: Int
+    // maksymalny poziom nawodnienia
+    var maxWatering: Int
+    // minimalny poziom nawodnienia
+    let minWatering = 0
     // ogolna kondycja rosliny
     var health: Int
     // maksymalna kondycja rosliny
     var maxHealth: Int
+    // minimalny poziom zdrowia
+    let minHealth = 0
     // naslonecznienie
     var insolation: Int
+    // maksymalne nasłonecznienie
+    var maxInsolation: Int
+    // minimalne nasłonecznienie
+    let minInsolation = 0
     // poziom zarobaczenia
     var pests: [Pest]
     // aktualny poziom wzrostu
     var rise: Int
+    //minimalny poziom wzrostu
+    let minRise = 0
     // aktualny level roslinki
     var plantLevel: Int
-    // maksymalny poziom nawodnienia
-    var maxWatering: Int
+
     
     
    private init(name: Plants) {
         self.name = name
         watering = 80
+        maxWatering = 150
         health = 100
         maxHealth = 100
         insolation = 50
+        maxInsolation = 100
         pests = []
         rise = 1
         plantLevel = 1
-        maxWatering = 150
+    
     }
     
     func wateringPlant(plant: Plant)  {
@@ -74,10 +87,15 @@ class Plant {
             result =  -5
             break
         case .dead:
-            return 0
+            return minRise
         }
-        
-        return rise + result
+        result = result + rise
+        if result >= minRise
+        {
+            return result
+        } else{
+            return minRise
+        }
     }
     func updatingHealth(health: Int, plantStatus: PlantStatus) -> Int {
         var result = 0
@@ -89,6 +107,7 @@ class Plant {
             result =  1
             break
         case .neutral:
+            result = 0
             break
         case .bad:
             result =  -1
@@ -97,14 +116,18 @@ class Plant {
             result =  -3
             break
         case .dead:
-            return 0
+            return minHealth
         }
-        if result + health >= 100
+        result = health + result
+        if result > maxHealth
         {
-            return health + result
+            return maxHealth
+        }else if  result <= maxHealth
+        {
+            return result
         }else
         {
-            return health
+            return minHealth
         }
     }
     func levelUp(rise: Int) -> Int {
