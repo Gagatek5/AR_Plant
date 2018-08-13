@@ -10,7 +10,7 @@ import Foundation
 
 class Plant {
     
-    static let instansce = Plant(name: .bonsai)
+    static let instance = Plant(name: .bonsai)
     // nazwa rosliny
     let name: Plants
     // procent nawodenienia
@@ -44,7 +44,7 @@ class Plant {
     }
     
     func wateringPlant(plant: Plant)  {
-        if plant.watering < plant.maxWatering && plant.watering + 5 <= plant.maxWatering
+        if plant.watering + 5 <= plant.maxWatering
         {
             plant.watering += 5
             print(plant.watering)
@@ -99,7 +99,7 @@ class Plant {
         case .dead:
             return 0
         }
-        if result < 100
+        if result + health >= 100
         {
             return health + result
         }else
