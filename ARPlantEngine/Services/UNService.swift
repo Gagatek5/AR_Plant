@@ -31,7 +31,7 @@ class UNService: NSObject {
          unCenter.delegate = self
     }
     
-    func timerRequest(with interval: TimeInterval) {
+    func timerRequest(with interval: TimeInterval, title: String, body: String) {
         let content = UNMutableNotificationContent()
         content.title = "AR Plant - time interval!"
         content.body = "Twoja roslinka potrzebuje opieki! Zajrzyj do niej, inaczej uschnie!"
@@ -42,10 +42,10 @@ class UNService: NSObject {
         unCenter.add(request)
     }
     
-    func dateRequest(with date: DateComponents, repeats: Bool) {
+    func dateRequest(with date: DateComponents, repeats: Bool, title: String, body: String) {
         let content = UNMutableNotificationContent()
-        content.title = "AR Plant - przypominajka!"
-        content.body = "Odwiedz swoja roslinke! Nie zapomnij sie nia opiekowac! I pamietaj: BLYSKAWICA UDERZA DWA RAZY!"
+        content.title = title
+        content.body = body
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         let request = UNNotificationRequest(identifier: "userNotification.calendar", content: content, trigger: trigger)
