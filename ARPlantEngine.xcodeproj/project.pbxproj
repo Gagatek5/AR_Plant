@@ -18,6 +18,7 @@
 		55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA820D5657B0060DB27 /* Obtainable.swift */; };
 		55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAB20D5675C0060DB27 /* Manure.swift */; };
 		55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAD20D567C90060DB27 /* Upgrades.swift */; };
+		D04366B3211B7DD8004F985C /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04366B2211B7DD8004F985C /* NotificationsController.swift */; };
 		E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E276927220FCF0EC0008FF00 /* ARView.storyboard */; };
 		E276927920FCF9E20008FF00 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E276927820FCF9E20008FF00 /* Models.scnassets */; };
 		E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B971120FFBD2D008B6FB5 /* ARVC.swift */; };
@@ -38,6 +39,7 @@
 		55FF2CA820D5657B0060DB27 /* Obtainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtainable.swift; sourceTree = "<group>"; };
 		55FF2CAB20D5675C0060DB27 /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
 		55FF2CAD20D567C90060DB27 /* Upgrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
+		D04366B2211B7DD8004F985C /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E242240620FFC58800C6D2F9 /* ARPlantEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARPlantEngine.entitlements; sourceTree = "<group>"; };
 		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
 		E276927820FCF9E20008FF00 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */,
 				55FF2C8E20D5576F0060DB27 /* ViewController.swift */,
 				E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */,
+				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				E2D985B620DFE7600046BBBE /* testbackgroundViewController.swift in Sources */,
 				55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */,
 				E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */,
+				D04366B3211B7DD8004F985C /* NotificationsController.swift in Sources */,
 				55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */,
 				55FF2C8D20D5576F0060DB27 /* AppDelegate.swift in Sources */,
 			);

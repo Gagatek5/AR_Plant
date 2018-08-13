@@ -20,13 +20,17 @@ class ViewController: UIViewController {
    
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var nc = NotificationsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        UNService.shared.authorize() 
+        UNService.shared.authorize()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         setupNewPlant()
+        
+        nc.reminderNotification()
         
         var timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
             (_) in
@@ -35,7 +39,6 @@ class ViewController: UIViewController {
             Plant.instansce.health = Plant.instansce.updatingHealth(health: Plant.instansce.health, plantStatus: Plant.instansce.currentStatus(plant: Plant.instansce))
             Plant.instansce.plantLevel = Plant.instansce.levelUp(rise: Plant.instansce.rise)
             self.updateView()
-            self.triggerReminderNotification()
         }
         
     }
@@ -86,12 +89,6 @@ class ViewController: UIViewController {
         
         
         return result
-    }
-    
-    func triggerReminderNotification() {
-        if(Plant.instansce.watering == 80) {
-            UNService.shared.timerRequest(with: 10)
-        }
     }
 
 }
