@@ -18,6 +18,10 @@
 		55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA820D5657B0060DB27 /* Obtainable.swift */; };
 		55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAB20D5675C0060DB27 /* Manure.swift */; };
 		55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAD20D567C90060DB27 /* Upgrades.swift */; };
+		D034931421233660009C2D75 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034931321233660009C2D75 /* Currency.swift */; };
+		D0349316212336C8009C2D75 /* PlantCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0349315212336C8009C2D75 /* PlantCoin.swift */; };
+		D034931821233768009C2D75 /* GoldenSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034931721233768009C2D75 /* GoldenSeed.swift */; };
+		D041F0602122D38100084D2F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D041F05F2122D38100084D2F /* Player.swift */; };
 		D04366B3211B7DD8004F985C /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04366B2211B7DD8004F985C /* NotificationsController.swift */; };
 		E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E276927220FCF0EC0008FF00 /* ARView.storyboard */; };
 		E276927920FCF9E20008FF00 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E276927820FCF9E20008FF00 /* Models.scnassets */; };
@@ -39,6 +43,10 @@
 		55FF2CA820D5657B0060DB27 /* Obtainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtainable.swift; sourceTree = "<group>"; };
 		55FF2CAB20D5675C0060DB27 /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
 		55FF2CAD20D567C90060DB27 /* Upgrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
+		D034931321233660009C2D75 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		D0349315212336C8009C2D75 /* PlantCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCoin.swift; sourceTree = "<group>"; };
+		D034931721233768009C2D75 /* GoldenSeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenSeed.swift; sourceTree = "<group>"; };
+		D041F05F2122D38100084D2F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D04366B2211B7DD8004F985C /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		E242240620FFC58800C6D2F9 /* ARPlantEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARPlantEngine.entitlements; sourceTree = "<group>"; };
 		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
@@ -95,6 +103,11 @@
 				55FF2C9F20D5582B0060DB27 /* Plant.swift */,
 				55FF2CA620D55EAE0060DB27 /* Pests.swift */,
 				55FF2CA820D5657B0060DB27 /* Obtainable.swift */,
+				D041F05F2122D38100084D2F /* Player.swift */,
+				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
+				D034931321233660009C2D75 /* Currency.swift */,
+				D0349315212336C8009C2D75 /* PlantCoin.swift */,
+				D034931721233768009C2D75 /* GoldenSeed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,7 +137,6 @@
 				55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */,
 				55FF2C8E20D5576F0060DB27 /* ViewController.swift */,
 				E2D985B520DFE7600046BBBE /* testbackgroundViewController.swift */,
-				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,11 +242,15 @@
 			files = (
 				55FF2C8F20D5576F0060DB27 /* ViewController.swift in Sources */,
 				55FF2CA720D55EAE0060DB27 /* Pests.swift in Sources */,
+				D0349316212336C8009C2D75 /* PlantCoin.swift in Sources */,
 				55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */,
 				5522A3CC20FE8E8B00C99720 /* UNService.swift in Sources */,
+				D041F0602122D38100084D2F /* Player.swift in Sources */,
 				55FF2CA020D5582B0060DB27 /* Plant.swift in Sources */,
 				E2D985B620DFE7600046BBBE /* testbackgroundViewController.swift in Sources */,
 				55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */,
+				D034931421233660009C2D75 /* Currency.swift in Sources */,
+				D034931821233768009C2D75 /* GoldenSeed.swift in Sources */,
 				E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */,
 				D04366B3211B7DD8004F985C /* NotificationsController.swift in Sources */,
 				55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */,

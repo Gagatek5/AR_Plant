@@ -18,7 +18,7 @@ class NotificationsController {
         // wtorek
         date.weekday = 3
         date.hour = 18
-        date.minute = 0
+        date.minute = 8
         UNService.shared.dateRequest(with: date, repeats: isRepeat, title: title, body: body)
     }
     
