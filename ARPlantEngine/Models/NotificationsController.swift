@@ -49,6 +49,12 @@ class NotificationsController {
         let title = "AR Plant - koniec itemu!"
         let body = "Twoj item sie skonczyl!"
         
+        //        let n = 7
+        //        let nextTriggerDate = Calendar.current.date(byAdding: .hour, value: n, to: Date())!
+        //        let comps = Calendar.current.dateComponents([.year, .month, .day], from: nextTriggerDate)
+        //
+        //        let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
+        //        print(trigger.nextTriggerDate())
     }
     
 }

@@ -9,13 +9,10 @@
 import Foundation
 
 // klasa nadrzedna dla wszystkich rzeczy mozliwych do kupienia
-class Obtainable {
+protocol Obtainable {
     
-    let name: String
-    let price: Int
-    
-    init(name: String, price: Int) {
-        self.name = name
-        self.price = price
-    }
+    var name: String { get set }
+    var price: Int { get set }
+    var currency: CurrencyType { get set }
+    // var image: UIImage { get set }
 }

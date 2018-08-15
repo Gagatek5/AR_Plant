@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5522A3CC20FE8E8B00C99720 /* UNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A3CB20FE8E8B00C99720 /* UNService.swift */; };
 		55FF2C8D20D5576F0060DB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */; };
-		55FF2C8F20D5576F0060DB27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2C8E20D5576F0060DB27 /* ViewController.swift */; };
+		55FF2C8F20D5576F0060DB27 /* EngineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2C8E20D5576F0060DB27 /* EngineVC.swift */; };
 		55FF2C9220D5576F0060DB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FF2C9020D5576F0060DB27 /* Main.storyboard */; };
 		55FF2C9420D557700060DB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55FF2C9320D557700060DB27 /* Assets.xcassets */; };
 		55FF2C9720D557700060DB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FF2C9520D557700060DB27 /* LaunchScreen.storyboard */; };
@@ -31,6 +31,10 @@
 		E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E276927220FCF0EC0008FF00 /* ARView.storyboard */; };
 		E276927920FCF9E20008FF00 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E276927820FCF9E20008FF00 /* Models.scnassets */; };
 		E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B971120FFBD2D008B6FB5 /* ARVC.swift */; };
+		E2D5649D2124518B00930431 /* Skins.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5649C2124518B00930431 /* Skins.swift */; };
+		E2D564A121246ED900930431 /* SolarLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D564A021246ED900930431 /* SolarLamp.swift */; };
+		E2D564A32124710E00930431 /* InsectRepelent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D564A22124710E00930431 /* InsectRepelent.swift */; };
+		E2D564A521247CE700930431 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D564A421247CE700930431 /* ShopVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +42,7 @@
 		5522A3CB20FE8E8B00C99720 /* UNService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNService.swift; sourceTree = "<group>"; };
 		55FF2C8920D5576F0060DB27 /* ARPlantEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPlantEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55FF2C8E20D5576F0060DB27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55FF2C8E20D5576F0060DB27 /* EngineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineVC.swift; sourceTree = "<group>"; };
 		55FF2C9120D5576F0060DB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55FF2C9320D557700060DB27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55FF2C9620D557700060DB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,10 @@
 		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
 		E276927820FCF9E20008FF00 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		E29B971120FFBD2D008B6FB5 /* ARVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARVC.swift; sourceTree = "<group>"; };
+		E2D5649C2124518B00930431 /* Skins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skins.swift; sourceTree = "<group>"; };
+		E2D564A021246ED900930431 /* SolarLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarLamp.swift; sourceTree = "<group>"; };
+		E2D564A22124710E00930431 /* InsectRepelent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsectRepelent.swift; sourceTree = "<group>"; };
+		E2D564A421247CE700930431 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		EE4E26B5609CD016D1C01397 /* Pods_ARPlantEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARPlantEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,12 +115,12 @@
 			isa = PBXGroup;
 			children = (
 				E242240620FFC58800C6D2F9 /* ARPlantEngine.entitlements */,
-				55FF2C9E20D5579A0060DB27 /* Models */,
-				55FF2CA220D558C70060DB27 /* Views */,
+				55FF2C9820D557700060DB27 /* Info.plist */,
 				55FF2CA320D558DB0060DB27 /* Controllers */,
+				55FF2C9E20D5579A0060DB27 /* Models */,
 				55FF2CA420D558E90060DB27 /* Resources */,
 				55FF2CA120D558B80060DB27 /* Services */,
-				55FF2C9820D557700060DB27 /* Info.plist */,
+				55FF2CA220D558C70060DB27 /* Views */,
 			);
 			path = ARPlantEngine;
 			sourceTree = "<group>";
@@ -120,12 +128,12 @@
 		55FF2C9E20D5579A0060DB27 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
+				E232E0C02108D8580047F85A /* Time.swift */,
 				E2D5649721244B7200930431 /* Plant */,
 				E2D5649821244B8300930431 /* Shop */,
 				E2D5649521244B2000930431 /* User */,
 				E2D5649921244BD600930431 /* Weather */,
-				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
-				E232E0C02108D8580047F85A /* Time.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,9 +150,9 @@
 		55FF2CA220D558C70060DB27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E276927220FCF0EC0008FF00 /* ARView.storyboard */,
 				55FF2C9520D557700060DB27 /* LaunchScreen.storyboard */,
 				55FF2C9020D5576F0060DB27 /* Main.storyboard */,
-				E276927220FCF0EC0008FF00 /* ARView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,9 +160,10 @@
 		55FF2CA320D558DB0060DB27 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E29B971120FFBD2D008B6FB5 /* ARVC.swift */,
 				55FF2C8C20D5576F0060DB27 /* AppDelegate.swift */,
-				55FF2C8E20D5576F0060DB27 /* ViewController.swift */,
+				E29B971120FFBD2D008B6FB5 /* ARVC.swift */,
+				55FF2C8E20D5576F0060DB27 /* EngineVC.swift */,
+				E2D564A421247CE700930431 /* ShopVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,8 +180,10 @@
 		55FF2CAA20D567490060DB27 /* Obtainables */ = {
 			isa = PBXGroup;
 			children = (
-				55FF2CAB20D5675C0060DB27 /* Manure.swift */,
+				E2D5649C2124518B00930431 /* Skins.swift */,
 				55FF2CAD20D567C90060DB27 /* Upgrades.swift */,
+				E2D5649E212453CD00930431 /* Items */,
+				E2D5649F212453D500930431 /* Skins */,
 			);
 			path = Obtainables;
 			sourceTree = "<group>";
@@ -208,8 +219,8 @@
 		E2D5649821244B8300930431 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				55FF2CAA20D567490060DB27 /* Obtainables */,
 				55FF2CA820D5657B0060DB27 /* Obtainable.swift */,
+				55FF2CAA20D567490060DB27 /* Obtainables */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -221,6 +232,23 @@
 				E26857AA211DE6E6003B5277 /* WeatherDayInfo.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		E2D5649E212453CD00930431 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				55FF2CAB20D5675C0060DB27 /* Manure.swift */,
+				E2D564A021246ED900930431 /* SolarLamp.swift */,
+				E2D564A22124710E00930431 /* InsectRepelent.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		E2D5649F212453D500930431 /* Skins */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Skins;
 			sourceTree = "<group>";
 		};
 		E47D1D3B5C49B24F56146673 /* Pods */ = {
@@ -356,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55FF2C8F20D5576F0060DB27 /* ViewController.swift in Sources */,
+				55FF2C8F20D5576F0060DB27 /* EngineVC.swift in Sources */,
 				E26857AB211DE6E6003B5277 /* WeatherDayInfo.swift in Sources */,
 				55FF2CA720D55EAE0060DB27 /* Pests.swift in Sources */,
 				D0349316212336C8009C2D75 /* PlantCoin.swift in Sources */,
@@ -368,9 +396,13 @@
 				D034931421233660009C2D75 /* Currency.swift in Sources */,
 				D034931821233768009C2D75 /* GoldenSeed.swift in Sources */,
 				E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */,
+				E2D564A32124710E00930431 /* InsectRepelent.swift in Sources */,
 				D04366B3211B7DD8004F985C /* NotificationsController.swift in Sources */,
+				E2D564A121246ED900930431 /* SolarLamp.swift in Sources */,
 				55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */,
+				E2D564A521247CE700930431 /* ShopVC.swift in Sources */,
 				E26857AD211DE727003B5277 /* Converter.swift in Sources */,
+				E2D5649D2124518B00930431 /* Skins.swift in Sources */,
 				E232E0C12108D8580047F85A /* Time.swift in Sources */,
 				55FF2C8D20D5576F0060DB27 /* AppDelegate.swift in Sources */,
 				E232E0C3210C67500047F85A /* OpenWeatherAPIConnector.swift in Sources */,

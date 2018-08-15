@@ -11,6 +11,9 @@ import Foundation
 class Plant {
     
     static let instance = Plant(name: .bonsai)
+    
+    let p = Player.instance
+    
     // nazwa rosliny
     let name: Plants
     // procent nawodenienia
@@ -71,31 +74,40 @@ class Plant {
     }
     func riseUp(rise: Int, plantStatus: PlantStatus) -> Int {
         var result = 0
+        
+        if p.activeUpgradesList.keys.contains(.Manure)
+        {
+            let manure = Manure.init()
+            result = manure.manureLevel
+            print("result:\(result)")
+        }
         switch plantStatus {
         case .theBest:
-            result = 10
+            result += 10
             break
         case .good:
-            result =  5
+            result +=  5
             break
         case .neutral:
             break
         case .bad:
-            result =  -2
+            result +=  -2
             break
         case .veryBad:
-            result =  -5
+            result +=  -5
             break
         case .dead:
             return minRise
         }
-        result = result + rise
+        result += rise
+        print("result:\(result)")
         if result >= minRise
         {
             return result
         } else{
             return minRise
         }
+        
     }
     func updatingHealth(health: Int, plantStatus: PlantStatus) -> Int {
         var result = 0

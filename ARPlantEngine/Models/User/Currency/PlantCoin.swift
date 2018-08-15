@@ -13,7 +13,7 @@ class PlantCoin: Currency {
     var quantity: Int
     
     init () {
-        self.quantity = 0
+        self.quantity = 100
     }
     
 //    internal func add(value: Int) -> Int {

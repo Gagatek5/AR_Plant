@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EngineVC.swift
 //  ARPlantEngine
 //
 //  Created by Dave Szczutkowski on 16/06/2018.
@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMobileAds
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var nameL: UILabel!
     @IBOutlet weak var wateringL: UILabel!
@@ -41,20 +41,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADBannerView
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
-        
-        let requestBigAd = GADRequest()
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
-        requestBigAd.testDevices = [kGADSimulatorID]
-        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")
-        
-        
         locationManager(locationManager)
         print(locationManager)
         if locationManager.location?.coordinate.latitude != nil
         {
-        location.getData(longitude: Double((locationManager.location?.coordinate.longitude)!), latitiude: Double((locationManager.location?.coordinate.latitude)!))
+            location.getData(longitude: Double((locationManager.location?.coordinate.longitude)!), latitiude: Double((locationManager.location?.coordinate.latitude)!))
         }
+
+        let requestBigAd = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        requestBigAd.testDevices = [kGADSimulatorID]
+        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/7256152038")//  ... ca-app-pub-5264924694211893/4676637417
+        
+        
+
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -116,6 +116,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GADBannerView
         
         
         return result
+    }
+    @IBAction func useManure(_ sender: Any) {
+        
+        let m = Manure.init()
+        m.use()
+        updateView()
+        
+    }
+    @IBAction func useRepel(_ sender: Any) {
+        let r = InsectRepelent.init()
+        r.use()
+        updateView()
+        
+    }
+    @IBAction func useSolar(_ sender: Any) {
+        let s = SolarLamp.init()
+        s.use()
+        updateView()
+        
     }
     
 

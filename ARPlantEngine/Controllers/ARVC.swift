@@ -32,7 +32,7 @@ class ARVC: UIViewController, ARSCNViewDelegate {
         self.sceneView.autoenablesDefaultLighting = true
         
         
-        test.timer()
+        test.timer(timeInterval: 5)
         
         _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
             (_) in

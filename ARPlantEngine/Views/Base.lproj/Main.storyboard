@@ -65,16 +65,16 @@
             </objects>
             <point key="canvasLocation" x="-884" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--EngineVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ARPlantEngine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EngineVC" customModule="ARPlantEngine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-ga-Rwb">
-                                <rect key="frame" x="166.66666666666666" y="244.99999999999997" width="41.666666666666657" height="322.33333333333326"/>
+                                <rect key="frame" x="167.33333333333334" y="244.99999999999997" width="41.666666666666657" height="322.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgo-02-gmW">
                                         <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20.333333333333332"/>
@@ -120,30 +120,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bfq-R4-eE1">
-                                <rect key="frame" x="88" y="637" width="198" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-RZ-Yxf">
-                                        <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
-                                        <state key="normal" title="Watering"/>
-                                        <connections>
-                                            <action selector="Watering:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laF-1V-fns"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzk-eI-i2a">
-                                        <rect key="frame" x="92" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="AD!"/>
-                                        <connections>
-                                            <action selector="addCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rfv-Wk-28t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJT-EU-aOn">
-                                        <rect key="frame" x="152" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDg-kt-Ud5">
                                 <rect key="frame" x="24" y="44" width="30" height="30"/>
                                 <constraints>
@@ -155,13 +131,102 @@
                                     <segue destination="kg2-Uk-qnO" kind="show" id="Hhg-eI-hed"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEE-wt-8OA">
+                                <rect key="frame" x="313" y="44" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="a4B-yD-yyR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="9lo-8g-beR" kind="show" id="wkj-Rh-dVq"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bfq-R4-eE1">
+                                <rect key="frame" x="12" y="748" width="339" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-RZ-Yxf">
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="bkW-ea-WiH"/>
+                                        </constraints>
+                                        <state key="normal" title="Watering"/>
+                                        <connections>
+                                            <action selector="Watering:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laF-1V-fns"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzk-eI-i2a">
+                                        <rect key="frame" x="92" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jv6-FR-ZRB"/>
+                                        </constraints>
+                                        <state key="normal" title="AD!"/>
+                                        <connections>
+                                            <action selector="addCoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rfv-Wk-28t"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ht-Tn-FiN">
+                                        <rect key="frame" x="152" y="0.0" width="52" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="RSp-pp-6BH"/>
+                                        </constraints>
+                                        <state key="normal" title="Manure"/>
+                                        <connections>
+                                            <action selector="useManure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qVy-Nl-aKp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tm-Yw-DHV">
+                                        <rect key="frame" x="234" y="0.0" width="39" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XnF-Rk-7U7"/>
+                                        </constraints>
+                                        <state key="normal" title="Repel"/>
+                                        <connections>
+                                            <action selector="useRepel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XfB-np-reP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJT-EU-aOn">
+                                        <rect key="frame" x="303" y="0.0" width="36" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="zpn-Gf-Bz5"/>
+                                        </constraints>
+                                        <state key="normal" title="Solar"/>
+                                        <connections>
+                                            <action selector="useSolar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X2h-SH-uLc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BzC-RZ-Yxf" firstAttribute="leading" secondItem="bfq-R4-eE1" secondAttribute="leading" id="1Kn-bu-c5a"/>
+                                    <constraint firstItem="8Ht-Tn-FiN" firstAttribute="top" secondItem="bfq-R4-eE1" secondAttribute="top" id="A4e-JC-ihI"/>
+                                    <constraint firstItem="8Ht-Tn-FiN" firstAttribute="leading" secondItem="Yzk-eI-i2a" secondAttribute="trailing" constant="30" id="FuB-A0-AFH"/>
+                                    <constraint firstItem="cJT-EU-aOn" firstAttribute="leading" secondItem="6tm-Yw-DHV" secondAttribute="trailing" constant="30" id="G23-6q-qO0"/>
+                                    <constraint firstAttribute="bottom" secondItem="BzC-RZ-Yxf" secondAttribute="bottom" id="PKC-gS-Iha"/>
+                                    <constraint firstItem="6tm-Yw-DHV" firstAttribute="top" secondItem="bfq-R4-eE1" secondAttribute="top" id="Urb-Jy-XKm"/>
+                                    <constraint firstItem="BzC-RZ-Yxf" firstAttribute="top" secondItem="bfq-R4-eE1" secondAttribute="top" id="X6z-RD-UJR"/>
+                                    <constraint firstItem="6tm-Yw-DHV" firstAttribute="leading" secondItem="8Ht-Tn-FiN" secondAttribute="trailing" constant="30" id="Zoc-zT-ooM"/>
+                                    <constraint firstAttribute="trailing" secondItem="cJT-EU-aOn" secondAttribute="trailing" id="aWH-Jn-GSf"/>
+                                    <constraint firstItem="Yzk-eI-i2a" firstAttribute="leading" secondItem="BzC-RZ-Yxf" secondAttribute="trailing" constant="30" id="bez-4z-U41"/>
+                                    <constraint firstItem="cJT-EU-aOn" firstAttribute="top" secondItem="bfq-R4-eE1" secondAttribute="top" id="eGC-KZ-GTM"/>
+                                    <constraint firstAttribute="bottom" secondItem="cJT-EU-aOn" secondAttribute="bottom" id="guA-za-YCd"/>
+                                    <constraint firstItem="Yzk-eI-i2a" firstAttribute="top" secondItem="bfq-R4-eE1" secondAttribute="top" id="hAg-tB-3Ps"/>
+                                    <constraint firstAttribute="bottom" secondItem="6tm-Yw-DHV" secondAttribute="bottom" id="jmJ-bJ-Tul"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yzk-eI-i2a" secondAttribute="bottom" id="rT8-QZ-UnP"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Ht-Tn-FiN" secondAttribute="bottom" id="syp-PQ-6fD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
+                            <constraint firstItem="yEE-wt-8OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Ag3-dB-c87"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
+                            <constraint firstItem="bfq-R4-eE1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="QoD-aB-3Wn"/>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uy7-eg-Tkh"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cDg-kt-Ud5" secondAttribute="trailing" constant="20" symbolic="YES" id="WX7-aL-wXM"/>
+                            <constraint firstItem="yEE-wt-8OA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZSh-ea-Fxm"/>
+                            <constraint firstItem="bfq-R4-eE1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ctf-ar-WYi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEE-wt-8OA" secondAttribute="trailing" constant="16" id="dsu-9M-2Rr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -177,7 +242,108 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="35"/>
+            <point key="canvasLocation" x="-17" y="44"/>
+        </scene>
+        <!--ShopVC-->
+        <scene sceneID="LTW-wh-KRx">
+            <objects>
+                <viewController id="9lo-8g-beR" customClass="ShopVC" customModule="ARPlantEngine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c5U-sO-yVZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I42-Rd-gx4">
+                                <rect key="frame" x="16" y="634" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy Manure"/>
+                                <connections>
+                                    <action selector="BuyManure:" destination="9lo-8g-beR" eventType="touchUpInside" id="jtK-j4-FsI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4f-R4-NWk">
+                                <rect key="frame" x="16" y="680" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy SolarLamp"/>
+                                <connections>
+                                    <action selector="BuySolarLamp:" destination="9lo-8g-beR" eventType="touchUpInside" id="XF1-mi-F5i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1b-nw-2w6">
+                                <rect key="frame" x="16" y="733" width="343" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy InsectRepelent"/>
+                                <connections>
+                                    <action selector="BuyInsectRepelent:" destination="9lo-8g-beR" eventType="touchUpInside" id="Zc7-AA-31P"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlantCoin: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM9-en-PjU">
+                                <rect key="frame" x="16" y="58" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldenSeed: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjN-W7-mcb">
+                                <rect key="frame" x="16" y="87" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Manure: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkR-9d-4B0">
+                                <rect key="frame" x="16" y="116" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SolarLamp: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QT-fJ-bN9">
+                                <rect key="frame" x="16" y="174" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snU-Nj-l9g">
+                                <rect key="frame" x="16" y="44" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jOu-y0-oxZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="8LM-fb-lIa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IsectRepelent: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-7B-tOH">
+                                <rect key="frame" x="16" y="145" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="snU-Nj-l9g" firstAttribute="top" secondItem="14c-Re-7vP" secondAttribute="top" id="gqT-ud-Dry"/>
+                            <constraint firstItem="snU-Nj-l9g" firstAttribute="leading" secondItem="14c-Re-7vP" secondAttribute="leading" constant="16" id="iT2-cn-Ca7"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="snU-Nj-l9g" secondAttribute="trailing" constant="20" symbolic="YES" id="zW4-HG-DLo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="14c-Re-7vP"/>
+                    </view>
+                    <connections>
+                        <outlet property="GoldenSeedCountL" destination="IjN-W7-mcb" id="N8R-xr-sYs"/>
+                        <outlet property="InsectRepelentCountL" destination="4Er-7B-tOH" id="KRv-qT-kSg"/>
+                        <outlet property="ManureCountL" destination="OkR-9d-4B0" id="2uN-uF-hew"/>
+                        <outlet property="PlantCoinCountL" destination="JM9-en-PjU" id="QzZ-cJ-Puq"/>
+                        <outlet property="SolarLampCountL" destination="3QT-fJ-bN9" id="jdg-Zl-tIT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2x-wX-XtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="43.596059113300491"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8LM-fb-lIa"/>
+    </inferredMetricsTieBreakers>
 </document>

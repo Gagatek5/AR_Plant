@@ -15,14 +15,20 @@ class Player {
     // special currency
     var seed = GoldenSeed()
     
+    var upgradesList: [Int] = [0,0,0]
+    
+    var activeUpgradesList: [Upgrade:Int] = [:]
+    
     static let instance = Player()
     private init() {}
-    private init(coin: Int, seed: Int) {
+    
+    private init(coin: Int, seed: Int, upgradesList: [Int]) {
         self.coin.quantity = coin
         self.seed.quantity = seed
+        self.upgradesList = upgradesList
     }
     
-    internal func add(value: Int, type: Currency) -> Int {
+    internal func add(value: Int, type: CurrencyType) -> Int {
         if(type == .GoldenSeed) {
             return self.seed.quantity + value
         } else {
@@ -31,7 +37,7 @@ class Player {
         
     }
     
-    func pay(price: Int, type: Currency) -> Bool {
+    func pay(price: Int, type: CurrencyType) -> Bool {
         
         if(type == .GoldenSeed && self.seed.quantity >= price) {
             self.seed.quantity -= price
@@ -43,9 +49,6 @@ class Player {
             return false
         }
     }
-    enum Currency {
-        case PlantCoin
-        case GoldenSeed
-    }
+
 }
  

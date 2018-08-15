@@ -9,10 +9,11 @@
 import Foundation
 
 class GoldenSeed: Currency {
+    
     var quantity: Int
     
     init () {
-        self.quantity = 0
+        self.quantity = 5
     }
     
 //    internal func add(value: Int) -> Int {

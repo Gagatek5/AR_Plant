@@ -15,5 +15,10 @@ protocol Currency {
 //    func add(value: Int)->Int
 //    
 //    func pay(price: Int)->Bool
-    
+
+}
+
+enum CurrencyType {
+    case PlantCoin
+    case GoldenSeed
 }
