@@ -24,6 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let location = OpenWeatherAPIConnector.shared
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var nc = NotificationsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         // Do any additional setup after loading the view, typically from a nib.
-        UNService.shared.authorize() 
+        UNService.shared.authorize()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         setupNewPlant() 
         
@@ -107,12 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         return result
     }
-    
-    func triggerReminderNotification() {
-        if(self.testPlant.watering == 80) {
-            UNService.shared.timerRequest(with: 1)
-        }
-    }
+
 
 }
 
