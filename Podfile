@@ -9,5 +9,5 @@ target 'ARPlantEngine' do
 
 pod 'Alamofire', '~> 4.7'
 pod 'SwiftyJSON', '~> 4.0'
-
+pod 'Google-Mobile-Ads-SDK'
 end

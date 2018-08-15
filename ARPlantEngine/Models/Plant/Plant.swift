@@ -179,7 +179,7 @@ class Plant {
         default:
             result.append(PlantStatus.veryBad)
         }
-        print("result: \(result)")
+       //print("result: \(result)")
         if result.contains(.dead)
         {
             return .dead

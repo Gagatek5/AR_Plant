@@ -12,8 +12,8 @@ protocol Currency {
 
     var quantity: Int { get set }
     
-    func add(value: Int)->Int
-    
-    func pay(price: Int)->Bool
+//    func add(value: Int)->Int
+//    
+//    func pay(price: Int)->Bool
     
 }
