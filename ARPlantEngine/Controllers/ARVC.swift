@@ -15,27 +15,27 @@ class ARVC: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     var counter:Float = 0.0
-    let testPlant = Plant.instansce
+    let test = Time.init()
+    let testPlant = Plant.instance
+    
     var updateTimer: Timer?
     var level = 0
     var lastNode: [SCNNode?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.configuration.planeDetection = .horizontal
         self.sceneView.session.run(configuration)
-        // self.sceneView.delegate = self as ARSCNViewDelegate
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
         
-        var timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
+        
+        test.timer()
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
             (_) in
-            print("lol")
-            self.testPlant.watering -= 2
-            self.testPlant.rise = self.testPlant.riseUp(rise: self.testPlant.rise, plantStatus: self.testPlant.currentStatus(plant: self.testPlant))
-            self.testPlant.health = self.testPlant.updatingHealth(health: self.testPlant.health, plantStatus: self.testPlant.currentStatus(plant: self.testPlant))
-            self.testPlant.plantLevel = self.testPlant.levelUp(rise: self.testPlant.rise)
             if self.sceneView.scene.rootNode.childNode(withName: "plant", recursively: false) != nil
             {
                 if self.level < self.testPlant.plantLevel
@@ -55,6 +55,10 @@ class ARVC: UIViewController, ARSCNViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func DeleteARNode(_ sender: Any) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
     }
     
     func registerGestureRecognizers() {
@@ -86,6 +90,7 @@ class ARVC: UIViewController, ARSCNViewDelegate {
             self.sceneView.scene.rootNode.addChildNode(node)
             addRiseUpButtonO.isEnabled = true
         }
+        
         
     }
     @IBAction func addStalk(_ sender: Any) {
