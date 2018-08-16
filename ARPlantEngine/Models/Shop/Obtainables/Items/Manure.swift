@@ -8,30 +8,13 @@
 
 import Foundation
 
-class Manure: Upgrades {
+struct Manure: Upgrades {
     var manureLevel: Int
     var time: Int
     var quantity: Int
     var name: String
     var price: Int
     var currency: CurrencyType
-    
-    func use()  {
-//        var date = Date()
-//        date = Calendar.current.date(byAdding: .hour,  value: self.time, to: Date())!
-//        return date
-        let p = Player.instance
-        
-        if !p.activeUpgradesList.keys.contains(.Manure) && p.upgradesList[0]>=1{
-            let time = self.time * 3600
-            p.activeUpgradesList.updateValue(time, forKey: .Manure)
-            print("warunek spelniony\nmanure: \(String(describing: p.activeUpgradesList[.Manure]))")
-            p.upgradesList[0] -= 1
-        } else {
-            print("NIE M!")
-        }
-    }
-    
     
     init() {
         self.manureLevel = 1
