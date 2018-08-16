@@ -120,19 +120,19 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
     @IBAction func useManure(_ sender: Any) {
         
         let m = Manure.init()
-        m.use()
+        m.use(upgradeItem: .Manure)
         updateView()
         
     }
     @IBAction func useRepel(_ sender: Any) {
         let r = InsectRepelent.init()
-        r.use()
+        r.use(upgradeItem: .InsectRepelent)
         updateView()
         
     }
     @IBAction func useSolar(_ sender: Any) {
         let s = SolarLamp.init()
-        s.use()
+        s.use(upgradeItem: .SolarLamp)
         updateView()
         
     }

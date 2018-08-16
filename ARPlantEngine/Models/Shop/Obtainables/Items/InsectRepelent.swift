@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InsectRepelent: Upgrades {
+struct InsectRepelent: Upgrades {
     
     var solarLevel: Int
     var time: Int
@@ -16,23 +16,6 @@ class InsectRepelent: Upgrades {
     var name: String
     var price: Int
     var currency: CurrencyType
-    
-    func use() {
-//        var date = Date()
-//        date = Calendar.current.date(byAdding: .hour,  value: self.time, to: Date())!
-//        print("DATA: \(date)")
-//        return date
-        let p = Player.instance
-        
-        if !p.activeUpgradesList.keys.contains(.InsectRepelent) && p.upgradesList[1]>=1{
-            let time = self.time * 3600
-            p.activeUpgradesList.updateValue(time, forKey: .InsectRepelent)
-            print("warunek spelniony\nrepel: \(String(describing: p.activeUpgradesList[.InsectRepelent]))")
-            p.upgradesList[1] -= 1
-        } else {
-            print("NIE R!")
-        }
-    }
     
     init() {
         self.solarLevel = 1

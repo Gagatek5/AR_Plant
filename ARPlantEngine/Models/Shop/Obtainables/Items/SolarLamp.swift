@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SolarLamp: Upgrades {
+struct SolarLamp: Upgrades {
     
     var solarLevel: Int
     var time: Int
@@ -16,22 +16,6 @@ class SolarLamp: Upgrades {
     var name: String
     var price: Int
     var currency: CurrencyType
-    
-    func use() {
-//        var date = Date()
-//        date = Calendar.current.date(byAdding: .hour,  value: self.time, to: Date())!
-//        return date
-        let p = Player.instance
-        
-        if !p.activeUpgradesList.keys.contains(.SolarLamp) && p.upgradesList[2]>=1{
-            let time = self.time * 60 // * 3600
-            p.activeUpgradesList.updateValue(time, forKey: .SolarLamp)
-            print("warunek spelniony\nsolar: \(String(describing: p.activeUpgradesList[.SolarLamp]))")
-            p.upgradesList[2] -= 1
-        } else {
-            print("NIE S!")
-        }
-    }
     
     init() {
         self.solarLevel = 1
