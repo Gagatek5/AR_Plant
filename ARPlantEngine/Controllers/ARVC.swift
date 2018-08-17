@@ -8,8 +8,9 @@
 
 import UIKit
 import ARKit
+import GoogleMobileAds
 
-class ARVC: UIViewController, ARSCNViewDelegate {
+class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
     
     @IBOutlet weak var addRiseUpButtonO: UIButton!
     @IBOutlet weak var sceneView: ARSCNView!
@@ -33,6 +34,11 @@ class ARVC: UIViewController, ARSCNViewDelegate {
 
         test.timer(timeInterval: 5)
         
+        
+        let requestBigAd = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().delegate = self 
+        requestBigAd.testDevices = [kGADSimulatorID]
+        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/6565369937")
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,6 +112,20 @@ class ARVC: UIViewController, ARSCNViewDelegate {
     func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
+    
+    @IBAction func removePests(_ sender: Any) {
+        if !Plant.instance.pests.isEmpty
+        {
+            if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+                
+            }
+        }else{
+            let alert = UIAlertController(title: "uffff....", message: "Nie ma robaków do usunięcia", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     /*
      // MARK: - Navigation
      
@@ -115,7 +135,41 @@ class ARVC: UIViewController, ARSCNViewDelegate {
      // Pass the selected object to the new view controller.
      }
      */
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        Plant.instance.pests.removeAll()
+        
+    }
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
     
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load. \(error)")
+    }
+
 }
 
 

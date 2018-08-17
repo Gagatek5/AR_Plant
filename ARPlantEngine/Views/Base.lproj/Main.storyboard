@@ -42,12 +42,24 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="qmt-xP-k7f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-7V-Vzm">
+                                <rect key="frame" x="16" y="44" width="93" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xh7-se-001"/>
+                                </constraints>
+                                <state key="normal" title="RemovePests"/>
+                                <connections>
+                                    <action selector="removePests:" destination="kg2-Uk-qnO" eventType="touchUpInside" id="jEO-Wv-PrS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6T9-SG-HRO" firstAttribute="centerX" secondItem="p9u-jN-7Bd" secondAttribute="centerX" id="02P-D5-j0v"/>
+                            <constraint firstItem="4Fu-7V-Vzm" firstAttribute="leading" secondItem="l1c-dz-J6G" secondAttribute="leading" constant="16" id="BPC-29-Tga"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="leading" secondItem="l1c-dz-J6G" secondAttribute="leading" id="Gse-6E-6VL"/>
                             <constraint firstItem="l1c-dz-J6G" firstAttribute="trailing" secondItem="HiX-dT-O3j" secondAttribute="trailing" constant="15" id="H8t-m3-Smc"/>
+                            <constraint firstItem="4Fu-7V-Vzm" firstAttribute="top" secondItem="l1c-dz-J6G" secondAttribute="top" id="IJv-GT-10z"/>
                             <constraint firstItem="6T9-SG-HRO" firstAttribute="bottom" secondItem="l1c-dz-J6G" secondAttribute="bottom" id="LqG-FT-NXe"/>
                             <constraint firstItem="HiX-dT-O3j" firstAttribute="top" secondItem="l1c-dz-J6G" secondAttribute="top" id="Myc-Qi-oXh"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="trailing" secondItem="l1c-dz-J6G" secondAttribute="trailing" id="Svc-0e-Hjr"/>
@@ -121,11 +133,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDg-kt-Ud5">
-                                <rect key="frame" x="24" y="44" width="30" height="30"/>
+                                <rect key="frame" x="24" y="44" width="83" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WvF-Qr-Xwa"/>
                                 </constraints>
-                                <state key="normal" title="AR"/>
+                                <state key="normal" title="dissmisview"/>
                                 <connections>
                                     <action selector="dissmissView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5eU-OD-aao"/>
                                     <segue destination="kg2-Uk-qnO" kind="show" id="Hhg-eI-hed"/>
@@ -214,10 +226,21 @@
                                     <constraint firstAttribute="bottom" secondItem="8Ht-Tn-FiN" secondAttribute="bottom" id="syp-PQ-6fD"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eln-lF-shZ">
+                                <rect key="frame" x="24" y="710" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="t6x-TG-efV"/>
+                                </constraints>
+                                <state key="normal" title="AR"/>
+                                <connections>
+                                    <segue destination="kg2-Uk-qnO" kind="show" id="lhz-AN-SJb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
+                            <constraint firstItem="bfq-R4-eE1" firstAttribute="top" secondItem="eln-lF-shZ" secondAttribute="bottom" constant="8" id="83F-di-lHs"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Ag3-dB-c87"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
@@ -227,6 +250,7 @@
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZSh-ea-Fxm"/>
                             <constraint firstItem="bfq-R4-eE1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ctf-ar-WYi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEE-wt-8OA" secondAttribute="trailing" constant="16" id="dsu-9M-2Rr"/>
+                            <constraint firstItem="eln-lF-shZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="e42-zh-KUH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -321,6 +345,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyh-oz-BjG">
+                                <rect key="frame" x="16" y="596" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add GoldenSeed"/>
+                                <connections>
+                                    <action selector="addGoldenSeed:" destination="9lo-8g-beR" eventType="touchUpInside" id="62F-Qf-EhM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -345,5 +377,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8LM-fb-lIa"/>
+        <segue reference="Hhg-eI-hed"/>
     </inferredMetricsTieBreakers>
 </document>
