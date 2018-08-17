@@ -51,7 +51,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         requestBigAd.testDevices = [kGADSimulatorID]
-        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/7256152038")//  ... ca-app-pub-5264924694211893/4676637417
+        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")//  ... ca-app-pub-5264924694211893/4676637417
         
         
 
@@ -96,13 +96,13 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         updateView()
     }
     func updateView(){
-        nameL.text = "Name:     " + self.testPlant.name.rawValue
-        wateringL.text = "Watering: " + String(self.testPlant.watering)
-        healthL.text = "Health:     " + String(self.testPlant.health)
-        insolationL.text = "Insolation: " + String(self.testPlant.insolation)
-        pestsL.text = "Peats:   " + String(self.testPlant.pests.count) + pestsLabelApender(pests: self.testPlant.pests)
-        riseL.text = "Rise:     " + String(self.testPlant.rise)
-        plantLevelL.text = "Plant level:    " + String(self.testPlant.plantLevel)
+        nameL.text = "Name: \(self.testPlant.name.rawValue)"
+        wateringL.text = "Watering:\(self.testPlant.watering)"
+        healthL.text = "Health:\(self.testPlant.health)"
+        insolationL.text = "Insolation:\(self.testPlant.insolation)"
+        pestsL.text = "Peats: \(self.testPlant.pests.count) \(pestsLabelApender(pests: self.testPlant.pests))"
+        riseL.text = "Rise:\(self.testPlant.rise)"
+        plantLevelL.text = "Plant level:\(self.testPlant.plantLevel)"
     }
     
     func pestsLabelApender(pests: [Pest]) -> String {

@@ -30,26 +30,9 @@ class ARVC: UIViewController, ARSCNViewDelegate {
         self.sceneView.session.run(configuration)
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
-        
-        
+
         test.timer(timeInterval: 5)
         
-        _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {
-            (_) in
-            if self.sceneView.scene.rootNode.childNode(withName: "plant", recursively: false) != nil
-            {
-                if self.level < self.testPlant.plantLevel
-                {
-                    self.autoRiseUp()
-                }else{
-                    self.autoRiseDown()
-                }
-                
-                self.level = self.testPlant.plantLevel
-            }
-        }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

@@ -28,11 +28,11 @@ class Player {
         self.upgradesList = upgradesList
     }
     
-    internal func add(value: Int, type: CurrencyType) -> Int {
+    internal func add(value: Int, type: CurrencyType) {
         if(type == .GoldenSeed) {
-            return self.seed.quantity + value
+            self.seed.quantity += value
         } else {
-            return self.coin.quantity + value
+            self.coin.quantity += value
         }
         
     }

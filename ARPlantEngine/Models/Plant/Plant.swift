@@ -31,7 +31,7 @@ class Plant {
     // naslonecznienie
     var insolation: Int
     // maksymalne nasłonecznienie
-    var maxInsolation: Int
+    var maxInsolation = 100
     // minimalne nasłonecznienie
     let minInsolation = 0
     // poziom zarobaczenia
@@ -42,7 +42,8 @@ class Plant {
     let minRise = 0
     // aktualny level roslinki
     var plantLevel: Int
-
+    // czas dodania szkodnika
+    var spawPestsTime: Int? = nil
     
     
    private init(name: Plants) {
@@ -142,6 +143,25 @@ class Plant {
             return minHealth
         }
     }
+    func updatingInsolation(insolation: Int) -> Int {
+        var result = insolation
+        if p.activeUpgradesList.keys.contains(.SolarLamp)
+        {
+            let solar = SolarLamp.init()
+            result += solar.solarLevel
+            print("result:\(result)")
+        }
+        if result > maxInsolation
+        {
+            return maxInsolation
+        }else if  result <= maxInsolation
+        {
+            return result
+        }else
+        {
+            return minInsolation
+        }
+    }
     func levelUp(rise: Int) -> Int {
        let result = rise/10
         
@@ -212,6 +232,10 @@ class Plant {
             return .theBest
         }
         
+    }
+    func SpawnPests(pest: Pest)
+    {
+        self.pests.append(pest)
     }
     
 }
