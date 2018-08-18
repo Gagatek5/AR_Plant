@@ -37,7 +37,7 @@ class UNService: NSObject {
         content.body = body
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
-        let request = UNNotificationRequest(identifier: "userNotification.timer", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "userNotification.timer.\(body)", content: content, trigger: trigger)
         
         unCenter.add(request)
     }

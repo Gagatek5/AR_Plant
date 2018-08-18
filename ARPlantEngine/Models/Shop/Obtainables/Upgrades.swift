@@ -51,7 +51,7 @@ extension Upgrades {
             p.activeUpgradesList.updateValue(time, forKey: upgradeItem)
             print("warunek spelniony\nmanure: \(String(describing: p.activeUpgradesList[upgradeItem]))")
             p.upgradesList[uitemIndex] -= 1
-            NotificationsController.bonusItemsHasEndedNotification(bonusItemTime: time)
+            NotificationsController.bonusItemsHasEndedNotification(bonusItemTime: time, item: upgradeItem)
         } else {
             print("NIE \(uitemIndex)!")
         }

@@ -16,8 +16,8 @@ class NotificationsController: UNService {
         let isRepeat = true
         var date = DateComponents()
         // wtorek
-        date.weekday = 3
-        date.hour = 18
+        // date.weekday = 0
+        date.hour = 21
         date.minute = 8
         UNService.shared.dateRequest(with: date, repeats: isRepeat, title: title, body: body)
     }
@@ -45,11 +45,11 @@ class NotificationsController: UNService {
         }
     }
     
-    static func bonusItemsHasEndedNotification(bonusItemTime: Int) {
+    static func bonusItemsHasEndedNotification(bonusItemTime: Int, item: Upgrade) {
         let title = "AR Plant - koniec itemu!"
-        let body = "Twoj item sie skonczyl!"
+        let body = "\(item) sie skonczyl!"
 
-        shared.timerRequest(with: Double(bonusItemTime), title: title, body: body)
+        UNService.shared.timerRequest(with: Double(bonusItemTime), title: title, body: body)
         //        let n = 7
         //        let nextTriggerDate = Calendar.current.date(byAdding: .hour, value: n, to: Date())!
         //        let comps = Calendar.current.dateComponents([.year, .month, .day], from: nextTriggerDate)

@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NotificationsController.reminderNotification()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5264924694211893~6274883442")// ca-app-pub-5264924694211893~7612085695 ... ca-app-pub-5264924694211893~6274883442
         return true
     }
