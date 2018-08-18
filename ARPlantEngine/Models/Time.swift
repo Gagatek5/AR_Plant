@@ -25,7 +25,7 @@ class Time
             
             if !Player.instance.activeUpgradesList.isEmpty {
                 for item in Player.instance.activeUpgradesList {
-                    var timeLeft = item.value - Int(timeInterval)
+                    let timeLeft = item.value - Int(timeInterval)
                     Player.instance.activeUpgradesList.updateValue(timeLeft, forKey: item.key)
                     print(item)
                     if(timeLeft <= 0) {

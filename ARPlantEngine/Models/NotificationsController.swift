@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NotificationsController {
+class NotificationsController: UNService {
     
-    func reminderNotification() {
+    static func reminderNotification() {
         let title = "AR Plant - przypominajka!"
         let body = "Odwiedz swoja roslinke! Nie zapomnij sie nia opiekowac! I pamietaj: BLYSKAWICA UDERZA DWA RAZY!"
         let isRepeat = true
@@ -35,7 +35,7 @@ class NotificationsController {
         return 0
     }
     
-    func pestsHasAppearedNotification() {
+    static func pestsHasAppearedNotification() {
         let title = "AR Plant - szkodniki atakuja!"
         let body = "Twoja roslinke zaatakowaly szkodniki! Pomoz jej szybko!"
         var pests = false
@@ -45,10 +45,11 @@ class NotificationsController {
         }
     }
     
-    func bonusItemsHasEndedNotification() {
+    static func bonusItemsHasEndedNotification(bonusItemTime: Int) {
         let title = "AR Plant - koniec itemu!"
         let body = "Twoj item sie skonczyl!"
-        
+
+        shared.timerRequest(with: Double(bonusItemTime), title: title, body: body)
         //        let n = 7
         //        let nextTriggerDate = Calendar.current.date(byAdding: .hour, value: n, to: Date())!
         //        let comps = Calendar.current.dateComponents([.year, .month, .day], from: nextTriggerDate)
