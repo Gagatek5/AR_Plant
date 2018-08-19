@@ -30,10 +30,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -53,14 +50,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         requestBigAd.testDevices = [kGADSimulatorID]
         GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")//  ... ca-app-pub-5264924694211893/4676637417
         
-        
-
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
         UNService.shared.authorize()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         setupNewPlant() 
         
     }
@@ -69,14 +59,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    @objc func reinstateBackgroundTask() {
-        if updateTimer != nil && (backgroundTask == UIBackgroundTaskInvalid) {
-            reinstateBackgroundTask()
-        }
-    }
+
     override func viewDidAppear(_ animated: Bool) {
 
     }
@@ -147,7 +130,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-        Player.instance.add(value: Int(reward.amount), type: .PlantCoin)
+        Player.instance.add(value: Int(truncating: reward.amount), type: .PlantCoin)
         
     }
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {

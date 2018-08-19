@@ -9,17 +9,28 @@
 import Foundation
 class Time
 {
+    
+    static let instance = Time()
+    private init(){}
+    
     let testPlant = Plant.instance
     var timerIsRunning = false // TODO remove after make correct UI
-    func timer(timeInterval: TimeInterval)
+    var counter = 1
+    func timer()
     {
         timerIsRunning = true
-        var timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) {
+        var timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             (_) in
-            wateringUpdate(usedWater: -2)
-            plantStatusUpdate()
-            itemRemoval(timeInterval: Int(timeInterval))
-            addPests(timeInterval: Int(timeInterval))
+            
+            if self.counter == 5
+            {
+                wateringUpdate(usedWater: -2)
+                plantStatusUpdate()
+                self.counter = 1
+            }
+            itemRemoval()
+            addPests()
+            self.counter += 1
         }
         func wateringUpdate(usedWater: Int){
             if self.testPlant.watering + usedWater >= 0
@@ -33,11 +44,11 @@ class Time
             self.testPlant.plantLevel = self.testPlant.levelUp(rise: self.testPlant.rise)
             self.testPlant.insolation = self.testPlant.updatingInsolation(insolation: self.testPlant.insolation)
         }
-        func itemRemoval(timeInterval: Int)
+        func itemRemoval()
         {
             if !Player.instance.activeUpgradesList.isEmpty {
                 for item in Player.instance.activeUpgradesList {
-                    let timeLeft = item.value - timeInterval
+                    let timeLeft = item.value - 1
                     Player.instance.activeUpgradesList.updateValue(timeLeft, forKey: item.key)
                     print(item)
                     if(timeLeft <= 0) {
@@ -46,7 +57,7 @@ class Time
                 }
             }
         }
-        func addPests(timeInterval: Int){
+        func addPests(){
             let pest = Pest(names: .FireAnt)
             if self.testPlant.spawPestsTime == nil
             {
@@ -54,7 +65,7 @@ class Time
             }
             if self.testPlant.spawPestsTime! > 0
             {
-                self.testPlant.spawPestsTime! -= timeInterval
+                self.testPlant.spawPestsTime! -= 1
             }else
             {
                 if  Player.instance.activeUpgradesList.keys.contains(Upgrade.InsectRepelent) == false

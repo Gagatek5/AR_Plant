@@ -65,6 +65,8 @@
                             <constraint firstItem="8My-7b-AwX" firstAttribute="trailing" secondItem="l1c-dz-J6G" secondAttribute="trailing" id="Svc-0e-Hjr"/>
                             <constraint firstAttribute="bottom" secondItem="8My-7b-AwX" secondAttribute="bottom" id="TnO-Dn-hWU"/>
                             <constraint firstItem="8My-7b-AwX" firstAttribute="top" secondItem="p9u-jN-7Bd" secondAttribute="top" id="dHH-3g-esB"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Fu-7V-Vzm" secondAttribute="trailing" constant="20" symbolic="YES" id="rmb-Pn-UzM"/>
+                            <constraint firstItem="HiX-dT-O3j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p9u-jN-7Bd" secondAttribute="leading" constant="20" symbolic="YES" id="sxh-Cv-xru"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l1c-dz-J6G"/>
                     </view>
@@ -140,7 +142,6 @@
                                 <state key="normal" title="dissmisview"/>
                                 <connections>
                                     <action selector="dissmissView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5eU-OD-aao"/>
-                                    <segue destination="kg2-Uk-qnO" kind="show" id="Hhg-eI-hed"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEE-wt-8OA">
@@ -226,21 +227,10 @@
                                     <constraint firstAttribute="bottom" secondItem="8Ht-Tn-FiN" secondAttribute="bottom" id="syp-PQ-6fD"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eln-lF-shZ">
-                                <rect key="frame" x="24" y="710" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="t6x-TG-efV"/>
-                                </constraints>
-                                <state key="normal" title="AR"/>
-                                <connections>
-                                    <segue destination="kg2-Uk-qnO" kind="show" id="lhz-AN-SJb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
-                            <constraint firstItem="bfq-R4-eE1" firstAttribute="top" secondItem="eln-lF-shZ" secondAttribute="bottom" constant="8" id="83F-di-lHs"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Ag3-dB-c87"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
@@ -250,7 +240,6 @@
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZSh-ea-Fxm"/>
                             <constraint firstItem="bfq-R4-eE1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ctf-ar-WYi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEE-wt-8OA" secondAttribute="trailing" constant="16" id="dsu-9M-2Rr"/>
-                            <constraint firstItem="eln-lF-shZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="e42-zh-KUH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -335,7 +324,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="8LM-fb-lIa"/>
+                                    <action selector="dissmissView:" destination="9lo-8g-beR" eventType="touchUpInside" id="q52-6O-s5o"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IsectRepelent: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-7B-tOH">
@@ -375,8 +364,4 @@
             <point key="canvasLocation" x="992.79999999999995" y="43.596059113300491"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8LM-fb-lIa"/>
-        <segue reference="Hhg-eI-hed"/>
-    </inferredMetricsTieBreakers>
 </document>
