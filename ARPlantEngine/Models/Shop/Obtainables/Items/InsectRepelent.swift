@@ -19,7 +19,7 @@ struct InsectRepelent: Upgrades {
     
     init() {
         self.solarLevel = 1
-        self.time = 4
+        self.time = 2
         self.quantity = 1
         self.name = "Cheap Lamp"
         self.price = 10

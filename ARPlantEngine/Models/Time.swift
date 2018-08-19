@@ -71,7 +71,7 @@ class Time
                 if  Player.instance.activeUpgradesList.keys.contains(Upgrade.InsectRepelent) == false
                 {
                     self.testPlant.SpawnPests(pest: pest)
-                    
+                    NotificationsController.pestsHasAppearedNotification(pestsAppeared: true)
                     pest.CalculateTime()
                 }else
                 {

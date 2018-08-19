@@ -33,8 +33,8 @@ class UNService: NSObject {
     
     func timerRequest(with interval: TimeInterval, title: String, body: String) {
         let content = UNMutableNotificationContent()
-        content.title = "AR Plant - time interval!"
-        content.body = "Twoja roslinka potrzebuje opieki! Zajrzyj do niej, inaczej uschnie!"
+        content.title = title
+        content.body = body
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: "userNotification.timer", content: content, trigger: trigger)

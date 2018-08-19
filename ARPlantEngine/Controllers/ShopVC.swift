@@ -60,6 +60,7 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
             
         }
     }
+  
     @IBAction func dissmissView(_ sender: Any) {
         dismiss (animated: true, completion: nil)
     }
