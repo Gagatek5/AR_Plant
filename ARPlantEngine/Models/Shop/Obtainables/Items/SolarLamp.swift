@@ -19,7 +19,7 @@ struct SolarLamp: Upgrades {
     
     init() {
         self.solarLevel = 1
-        self.time = 1
+        self.time = 2
         self.quantity = 1
         self.name = "Cheap Lamp"
         self.price = 10

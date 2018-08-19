@@ -47,10 +47,11 @@ extension Upgrades {
         
         let p = Player.instance
         if !p.activeUpgradesList.keys.contains(upgradeItem) && p.upgradesList[uitemIndex]>=1{
-            let time = self.time * 3600
+            let time = self.time * 10
             p.activeUpgradesList.updateValue(time, forKey: upgradeItem)
             print("warunek spelniony\nmanure: \(String(describing: p.activeUpgradesList[upgradeItem]))")
             p.upgradesList[uitemIndex] -= 1
+            NotificationsController.bonusItemsHasEndedNotification(bonusItemTime: time)
         } else {
             print("NIE \(uitemIndex)!")
         }

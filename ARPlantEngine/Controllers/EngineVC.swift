@@ -25,7 +25,6 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
     let location = OpenWeatherAPIConnector.shared
     var updateTimer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
-    var nc = NotificationsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +51,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         requestBigAd.testDevices = [kGADSimulatorID]
         GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")//  ... ca-app-pub-5264924694211893/4676637417
-        
-        
 
-        
-        
         // Do any additional setup after loading the view, typically from a nib.
         UNService.shared.authorize()
         

@@ -65,7 +65,6 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
         }
     }
 
-  
     func updateView(){
         PlantCoinCountL.text = "PlantCoin: \(p.coin.quantity)"
         GoldenSeedCountL.text = "GoldenCoin: \(p.seed.quantity)"
