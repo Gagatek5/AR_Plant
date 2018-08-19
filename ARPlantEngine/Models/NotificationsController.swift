@@ -35,12 +35,10 @@ class NotificationsController: UNService {
         return 0
     }
     
-    static func pestsHasAppearedNotification() {
+    static func pestsHasAppearedNotification(pestsAppeared: Bool) {
         let title = "AR Plant - szkodniki atakuja!"
         let body = "Twoja roslinke zaatakowaly szkodniki! Pomoz jej szybko!"
-        var pests = false
-        
-        if(pests) {
+        if(pestsAppeared) {
             UNService.shared.timerRequest(with: 1, title: title, body: body)
         }
     }
