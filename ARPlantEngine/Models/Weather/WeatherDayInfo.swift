@@ -7,113 +7,71 @@
 //
 
 
-import UIKit
+import Foundation
 
-class DayWeather {
+struct WeatherDayInfo {
+    let coord: Coord?
+    let sys: Sys?
+    let weather: [Weather]?
+    let main: Main?
+    let wind: Wind?
+    let rain: Rain?
+    let clouds: Clouds?
+    let dt, id: Int?
+    let name: String?
+    let cod: Int?
     
-    // to do
-    let date : String
-    let temp: Int
-    let tempMax: Int
-    let tempMin: Int
-    let pressure: Int
-    let image: UIImage
-    let humidity: Int
-    let windSpeed: Int
-    let windDirection: Direction
-    
-    init(date:String, temp:Int, tempMax:Int, tempMin:Int, pressure:Int, image:UIImage, humidity:Int, windSpeed:Int, windDirection:Direction ) {
-        self.date = date
-        self.temp = temp
-        self.tempMax = tempMax
-        self.tempMin = tempMin
-        self.pressure = pressure
-        self.image = image
-        self.humidity = humidity
-        self.windSpeed = windSpeed
-        self.windDirection = windDirection
+    init(weather: [Weather]) {
+        self.weather = weather
+        coord = nil
+        sys = nil
+        main = nil
+        wind = nil
+        rain = nil
+        clouds = nil
+        dt = nil
+        id = nil
+        name = nil
+        cod = nil
+        
+        
     }
 }
-//Optional({
-//
-//    base = stations;
-//
-//    clouds =     {
-//
-//        all = 20;
-//
-//    };
-//
-//    cod = 200;
-//
-//    coord =     {
-//
-//        lat = "54.35";
-//
-//        lon = "18.62";
-//
-//    };
-//
-//    dt = 1532986200;
-//
-//    id = 3099434;
-//
-//    main =     {
-//
-//        humidity = 94;
-//
-//        pressure = 1019;
-//
-//        temp = "294.15";
-//
-//        "temp_max" = "294.15";
-//
-//        "temp_min" = "294.15";
-//
-//    };
-//
-//    name = Gdansk;
-//
-//    sys =     {
-//
-//        country = PL;
-//
-//        id = 5349;
-//
-//        message = "0.0054";
-//
-//        sunrise = 1532919311;
-//
-//        sunset = 1532976450;
-//
-//        type = 1;
-//
-//    };
-//
-//    visibility = 8000;
-//
-//    weather =     (
-//
-//        {
-//
-//            description = "few clouds";
-//
-//            icon = 02n;
-//
-//            id = 801;
-//
-//            main = Clouds;
-//
-//        }
-//
-//    );
-//
-//    wind =     {
-//
-//        deg = 340;
-//
-//        speed = "2.1";
-//
-//    };
-//
-//})
+
+struct Clouds {
+    let all: Int?
+}
+
+struct Coord {
+    let lon, lat: Int?
+}
+
+struct Main {
+    let temp: Double?
+    let humidity, pressure: Int?
+    let tempMin, tempMax: Double?
+}
+
+struct Rain {
+    let the3H: Int?
+}
+
+struct Sys {
+    let country: String?
+    let sunrise, sunset: Int?
+}
+
+struct Weather {
+    let id: Int?
+    let main, description, icon: String?
+    init(main: String) {
+        self.main = main
+        id = nil
+        description = nil
+        icon = nil
+    }
+}
+
+struct Wind {
+    let speed, deg: Double?
+}

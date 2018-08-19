@@ -22,11 +22,7 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
     let repel = InsectRepelent()
     override func viewDidLoad() {
         super.viewDidLoad()
-        PlantCoinCountL.text = "PlantCoin: \(p.coin.quantity)"
-        GoldenSeedCountL.text = "GoldenCoin: \(p.seed.quantity)"
-        ManureCountL.text = "Manure: \(p.upgradesList[0])"
-        InsectRepelentCountL.text = "Repel: \(p.upgradesList[1])"
-        SolarLampCountL.text = "Solar: \(p.upgradesList[2])"
+        updateView()
         
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
@@ -64,7 +60,11 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
             
         }
     }
-
+  
+    @IBAction func dissmissView(_ sender: Any) {
+        dismiss (animated: true, completion: nil)
+    }
+  
     func updateView(){
         PlantCoinCountL.text = "PlantCoin: \(p.coin.quantity)"
         GoldenSeedCountL.text = "GoldenCoin: \(p.seed.quantity)"
@@ -81,7 +81,7 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-        Player.instance.add(value: Int(reward.amount), type: .GoldenSeed)
+        Player.instance.add(value: Int(truncating: reward.amount), type: .GoldenSeed)
         
         
     }

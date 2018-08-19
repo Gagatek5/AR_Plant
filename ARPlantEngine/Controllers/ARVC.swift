@@ -16,7 +16,7 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     var counter:Float = 0.0
-    let test = Time.init()
+    let test = Time.instance
     let testPlant = Plant.instance
     
     var updateTimer: Timer?
@@ -32,9 +32,8 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
 
-        test.timer(timeInterval: 5)
-        
-        
+        test.timer()
+
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self 
         requestBigAd.testDevices = [kGADSimulatorID]

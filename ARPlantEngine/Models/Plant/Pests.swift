@@ -20,7 +20,7 @@ struct Pest {
         harmfulness = 3
     }
     func CalculateTime() {
-        Plant.instance.spawPestsTime = Int(arc4random_uniform(3) + 1) * 3600
+        Plant.instance.spawPestsTime = Int(arc4random_uniform(3) + 1) *  3600
     }
 //    func randomPest() -> Pests{
 //        switch Int(arc4random_uniform(1)){
