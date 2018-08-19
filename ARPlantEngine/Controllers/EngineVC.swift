@@ -136,9 +136,6 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         updateView()
         
     }
-    
-
-    
     @IBAction func addCoin(_ sender: Any) {
         
         if GADRewardBasedVideoAd.sharedInstance().isReady == true {

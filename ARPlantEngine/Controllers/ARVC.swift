@@ -31,9 +31,12 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
         self.sceneView.session.run(configuration)
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
-
-        test.timer(timeInterval: 5)
         
+        if !Time.init().timerIsRunning
+        {
+            test.timer(timeInterval: 5)
+           
+        }
         
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self 

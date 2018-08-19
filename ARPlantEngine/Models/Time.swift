@@ -10,8 +10,10 @@ import Foundation
 class Time
 {
     let testPlant = Plant.instance
+    var timerIsRunning = false // TODO remove after make correct UI
     func timer(timeInterval: TimeInterval)
     {
+        timerIsRunning = true
         var timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) {
             (_) in
             wateringUpdate(usedWater: -2)
@@ -58,6 +60,7 @@ class Time
                 if  Player.instance.activeUpgradesList.keys.contains(Upgrade.InsectRepelent) == false
                 {
                     self.testPlant.SpawnPests(pest: pest)
+                    
                     pest.CalculateTime()
                 }else
                 {
