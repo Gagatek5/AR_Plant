@@ -23,7 +23,6 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
-        
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         requestBigAd.testDevices = [kGADSimulatorID]

@@ -19,8 +19,25 @@ class Player {
     
     var activeUpgradesList: [Upgrade:Int] = [:]
     
+    let playerStatusDefaults = UserDefaults.standard
+    let converter = SaveCurrentStatus()
+    
     static let instance = Player()
-    private init() {}
+    private init() {
+        if playerStatusDefaults.value(forKey: "coin") != nil
+        {
+            self.coin.quantity = playerStatusDefaults.value(forKey: "coin") as! Int
+            self.seed.quantity = playerStatusDefaults.value(forKey: "seed") as! Int
+            self.upgradesList =  playerStatusDefaults.value(forKey: "upgradeList") as! [Int]
+            
+            let temp = playerStatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int]
+            
+            for item in temp
+            {
+                self.activeUpgradesList.updateValue(item.value, forKey: converter.convertFromString(upgrade: item.key))
+            }
+        }
+    }
     
     private init(coin: Int, seed: Int, upgradesList: [Int]) {
         self.coin.quantity = coin
@@ -49,6 +66,7 @@ class Player {
             return false
         }
     }
-
+    
+   
 }
  

@@ -14,7 +14,7 @@
 		55FF2C9420D557700060DB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55FF2C9320D557700060DB27 /* Assets.xcassets */; };
 		55FF2C9720D557700060DB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55FF2C9520D557700060DB27 /* LaunchScreen.storyboard */; };
 		55FF2CA020D5582B0060DB27 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2C9F20D5582B0060DB27 /* Plant.swift */; };
-		55FF2CA720D55EAE0060DB27 /* Pests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA620D55EAE0060DB27 /* Pests.swift */; };
+		55FF2CA720D55EAE0060DB27 /* Pest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA620D55EAE0060DB27 /* Pest.swift */; };
 		55FF2CA920D5657B0060DB27 /* Obtainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CA820D5657B0060DB27 /* Obtainable.swift */; };
 		55FF2CAC20D5675C0060DB27 /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAB20D5675C0060DB27 /* Manure.swift */; };
 		55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FF2CAD20D567C90060DB27 /* Upgrades.swift */; };
@@ -30,6 +30,7 @@
 		E26857AD211DE727003B5277 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26857AC211DE727003B5277 /* Converter.swift */; };
 		E276927320FCF0EC0008FF00 /* ARView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E276927220FCF0EC0008FF00 /* ARView.storyboard */; };
 		E276927920FCF9E20008FF00 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E276927820FCF9E20008FF00 /* Models.scnassets */; };
+		E2999697212CAE3300387625 /* SaveCurrentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2999696212CAE3300387625 /* SaveCurrentStatus.swift */; };
 		E29B971220FFBD2D008B6FB5 /* ARVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B971120FFBD2D008B6FB5 /* ARVC.swift */; };
 		E2D5649D2124518B00930431 /* Skins.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5649C2124518B00930431 /* Skins.swift */; };
 		E2D564A121246ED900930431 /* SolarLamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D564A021246ED900930431 /* SolarLamp.swift */; };
@@ -48,7 +49,7 @@
 		55FF2C9620D557700060DB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55FF2C9820D557700060DB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FF2C9F20D5582B0060DB27 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		55FF2CA620D55EAE0060DB27 /* Pests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pests.swift; sourceTree = "<group>"; };
+		55FF2CA620D55EAE0060DB27 /* Pest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pest.swift; sourceTree = "<group>"; };
 		55FF2CA820D5657B0060DB27 /* Obtainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obtainable.swift; sourceTree = "<group>"; };
 		55FF2CAB20D5675C0060DB27 /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
 		55FF2CAD20D567C90060DB27 /* Upgrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		E26857AC211DE727003B5277 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		E276927220FCF0EC0008FF00 /* ARView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARView.storyboard; sourceTree = "<group>"; };
 		E276927820FCF9E20008FF00 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		E2999696212CAE3300387625 /* SaveCurrentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCurrentStatus.swift; sourceTree = "<group>"; };
 		E29B971120FFBD2D008B6FB5 /* ARVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARVC.swift; sourceTree = "<group>"; };
 		E2D5649C2124518B00930431 /* Skins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skins.swift; sourceTree = "<group>"; };
 		E2D564A021246ED900930431 /* SolarLamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarLamp.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				D04366B2211B7DD8004F985C /* NotificationsController.swift */,
+				E2999696212CAE3300387625 /* SaveCurrentStatus.swift */,
 				E232E0C02108D8580047F85A /* Time.swift */,
 				E2D5649721244B7200930431 /* Plant */,
 				E2D5649821244B8300930431 /* Shop */,
@@ -210,7 +213,7 @@
 		E2D5649721244B7200930431 /* Plant */ = {
 			isa = PBXGroup;
 			children = (
-				55FF2CA620D55EAE0060DB27 /* Pests.swift */,
+				55FF2CA620D55EAE0060DB27 /* Pest.swift */,
 				55FF2C9F20D5582B0060DB27 /* Plant.swift */,
 			);
 			path = Plant;
@@ -386,9 +389,10 @@
 			files = (
 				55FF2C8F20D5576F0060DB27 /* EngineVC.swift in Sources */,
 				E26857AB211DE6E6003B5277 /* WeatherDayInfo.swift in Sources */,
-				55FF2CA720D55EAE0060DB27 /* Pests.swift in Sources */,
+				55FF2CA720D55EAE0060DB27 /* Pest.swift in Sources */,
 				D0349316212336C8009C2D75 /* PlantCoin.swift in Sources */,
 				55FF2CAE20D567C90060DB27 /* Upgrades.swift in Sources */,
+				E2999697212CAE3300387625 /* SaveCurrentStatus.swift in Sources */,
 				5522A3CC20FE8E8B00C99720 /* UNService.swift in Sources */,
 				D041F0602122D38100084D2F /* Player.swift in Sources */,
 				55FF2CA020D5582B0060DB27 /* Plant.swift in Sources */,

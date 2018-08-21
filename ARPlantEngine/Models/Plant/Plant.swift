@@ -10,8 +10,8 @@ import Foundation
 
 class Plant {
     
-    static let instance = Plant(name: .bonsai)
-    
+    let plantStatusDefaults = UserDefaults.standard
+    let converter = SaveCurrentStatus()
     let p = Player.instance
     
     // nazwa rosliny
@@ -19,13 +19,13 @@ class Plant {
     // procent nawodenienia
     var watering: Int
     // maksymalny poziom nawodnienia
-    var maxWatering: Int
+    var maxWatering = 150
     // minimalny poziom nawodnienia
     let minWatering = 0
     // ogolna kondycja rosliny
     var health: Int
     // maksymalna kondycja rosliny
-    var maxHealth: Int
+    var maxHealth = 100
     // minimalny poziom zdrowia
     let minHealth = 0
     // naslonecznienie
@@ -35,7 +35,7 @@ class Plant {
     // minimalne nasłonecznienie
     let minInsolation = 0
     // poziom zarobaczenia
-    var pests: [Pest]
+    var pests: [Pest] = []
     // aktualny poziom wzrostu
     var rise: Int
     //minimalny poziom wzrostu
@@ -44,20 +44,33 @@ class Plant {
     var plantLevel: Int
     // czas dodania szkodnika
     var spawPestsTime: Int? = nil
-    
-    
-   private init(name: Plants) {
-        self.name = name
-        watering = 80
-        maxWatering = 150
-        health = 100
-        maxHealth = 100
-        insolation = 50
-        maxInsolation = 100
-        pests = []
-        rise = 1
-        plantLevel = 1
-    
+
+    static let instance = Plant(name: .bonsai)
+    private init(name: Plants) {
+        if plantStatusDefaults.value(forKey: "name") != nil
+        {
+            self.name = converter.convertNameToPlants(plantName:  plantStatusDefaults.value(forKey: "name") as! String)
+            watering = plantStatusDefaults.value(forKey: "watering") as! Int
+            health =  plantStatusDefaults.value(forKey: "health") as! Int
+            insolation =  plantStatusDefaults.value(forKey: "insolation") as! Int
+            rise = plantStatusDefaults.value(forKey: "rise") as! Int
+            plantLevel = plantStatusDefaults.value(forKey: "plantLevel") as! Int
+            let pests = plantStatusDefaults.value(forKey: "pests") as! [String]
+            
+            for pest in pests
+            {
+                self.pests.append(Pest.init(names:converter.convertNameToPests(pestName:pest)))
+            }
+        } else
+        {
+            self.name = name
+            watering = 80
+            health = 100
+            insolation = 50
+            pests = []
+            rise = 1
+            plantLevel = 1
+        }
     }
     
     func wateringPlant(plant: Plant)  {
@@ -237,7 +250,8 @@ class Plant {
     {
         self.pests.append(pest)
     }
-    
+
+   
 }
 
 enum Plants: String

@@ -1,5 +1,5 @@
 //
-//  Pests.swift
+//  Pest.swift
 //  ARPlantEngine
 //
 //  Created by Dave Szczutkowski on 16/06/2018.
@@ -20,7 +20,7 @@ struct Pest {
         harmfulness = 3
     }
     func CalculateTime() {
-        Plant.instance.spawPestsTime = Int(arc4random_uniform(3) + 1) *  3600
+        Plant.instance.spawPestsTime = Int(arc4random_uniform(3) + 1) *  10
     }
 //    func randomPest() -> Pests{
 //        switch Int(arc4random_uniform(1)){
