@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GW3-gg-Z4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-884" y="35"/>
+            <point key="canvasLocation" x="-884" y="44"/>
         </scene>
         <!--EngineVC-->
         <scene sceneID="tne-QT-ifu">
@@ -227,19 +227,32 @@
                                     <constraint firstAttribute="bottom" secondItem="8Ht-Tn-FiN" secondAttribute="bottom" id="syp-PQ-6fD"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tO-ac-M1b">
+                                <rect key="frame" x="165" y="710" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jAP-Y0-CCx"/>
+                                </constraints>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetPlant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bmu-ee-V9h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Ag3-dB-c87"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3tO-ac-M1b" secondAttribute="trailing" constant="164" id="C2Y-3D-eMh"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
                             <constraint firstItem="bfq-R4-eE1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="QoD-aB-3Wn"/>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uy7-eg-Tkh"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cDg-kt-Ud5" secondAttribute="trailing" constant="20" symbolic="YES" id="WX7-aL-wXM"/>
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZSh-ea-Fxm"/>
+                            <constraint firstItem="3tO-ac-M1b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="165" id="aeu-v1-7cz"/>
                             <constraint firstItem="bfq-R4-eE1" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ctf-ar-WYi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEE-wt-8OA" secondAttribute="trailing" constant="16" id="dsu-9M-2Rr"/>
+                            <constraint firstItem="bfq-R4-eE1" firstAttribute="top" secondItem="3tO-ac-M1b" secondAttribute="bottom" constant="8" id="iRn-dT-RLb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -255,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="44"/>
+            <point key="canvasLocation" x="-18.399999999999999" y="43.596059113300491"/>
         </scene>
         <!--ShopVC-->
         <scene sceneID="LTW-wh-KRx">

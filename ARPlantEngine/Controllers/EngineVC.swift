@@ -126,6 +126,17 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         }
 
     }
+    
+    @IBAction func resetPlant(_ sender: Any) {
+        testPlant.watering = 80
+        testPlant.health = 100
+        testPlant.insolation = 50
+        testPlant.pests = []
+        testPlant.rise = 1
+        testPlant.plantLevel = 1
+    }
+    
+    
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
