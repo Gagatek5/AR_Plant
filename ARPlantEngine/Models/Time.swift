@@ -14,24 +14,23 @@ class Time
     private init(){}
     
     let testPlant = Plant.instance
-    var timerIsRunning = false // TODO remove after make correct UI
     var counter = 1
     func timer()
     {
-        timerIsRunning = true
         var timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             (_) in
             
             if self.counter == 5
             {
-                wateringUpdate(usedWater: -2)
-                plantStatusUpdate()
+                self.wateringUpdate(usedWater: -2)
+                self.plantStatusUpdate()
                 self.counter = 1
             }
-            itemRemoval()
-            addPests()
+            self.itemRemoval()
+            self.addPests()
             self.counter += 1
         }
+    }
         func wateringUpdate(usedWater: Int){
             if self.testPlant.watering + usedWater >= 0
             {
@@ -80,8 +79,45 @@ class Time
             }
             print(self.testPlant.spawPestsTime ?? "no value")
         }
+    func CalculateCurrentStatus(time: [Int]) {
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
         
-        
+        let currentDate = [month, day, hour, minutes, seconds]
+        let multiplyArray = [2592000,86400,3600,60,1]
+        var subtractionList:[Int] = []
+        var result = 0
+        for i in 0...time.count-1
+        {
+            subtractionList.append(currentDate[i] - time[i])
+            print(subtractionList[i])
+        }
+        for i in 0...subtractionList.count-1
+        {
+            result += subtractionList[i] * multiplyArray[i]
+            print(result)
+        }
+        test(counters: result)
     }
+    func test(counters: Int)
+    {
+        for i in 0...counters
+        {
+            if i == 60
+            {
+                self.wateringUpdate(usedWater: -2)
+                self.plantStatusUpdate()
+            }
+            self.itemRemoval()
+            self.addPests()
+        }
+    }
+        
+    
 }
 

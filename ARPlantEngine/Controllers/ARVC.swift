@@ -134,10 +134,10 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
      // Pass the selected object to the new view controller.
      }
      */
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didRewardUserWith reward: GADAdReward) {
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
         Plant.instance.pests.removeAll()
+        print(Plant.instance.pests)
         
     }
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
