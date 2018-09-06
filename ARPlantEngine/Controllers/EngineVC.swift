@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMobileAds
 
-class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class EngineVC: UIViewController, CLLocationManagerDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var nameL: UILabel!
     @IBOutlet weak var wateringL: UILabel!
@@ -46,7 +46,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
 
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
-        requestBigAd.testDevices = [kGADSimulatorID]
+        requestBigAd.testDevices = [kGADSimulatorID,"8e48301d1f7226954ef508429ed14001"]
         GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")//  ... ca-app-pub-5264924694211893/4676637417
 
         UNService.shared.authorize()
@@ -118,6 +118,9 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         updateView()
         
     }
+    @IBAction func addPest(_ sender: Any) {
+        testPlant.SpawnPests(pest: Pest.init(names: .FireAnt))
+    }
     @IBAction func addCoin(_ sender: Any) {
         
         if GADRewardBasedVideoAd.sharedInstance().isReady == true {
@@ -133,7 +136,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
         testPlant.insolation = 50
         testPlant.pests = []
         testPlant.rise = 1
-        testPlant.plantLevel = 1
+        testPlant.plantLevel = 100
     }
     
     
@@ -141,6 +144,7 @@ class EngineVC: UIViewController, CLLocationManagerDelegate, GADBannerViewDelega
                             didRewardUserWith reward: GADAdReward) {
         print("Reward received with currency: \(reward.type), amount \(reward.amount).")
         Player.instance.add(value: Int(truncating: reward.amount), type: .PlantCoin)
+        testPlant.pests.removeAll()
         
     }
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {

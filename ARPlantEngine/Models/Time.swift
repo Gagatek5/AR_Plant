@@ -7,21 +7,34 @@
 //
 
 import Foundation
+import ARKit
 class Time
 {
     
     static let instance = Time()
     private init(){}
-    
+   
     let testPlant = Plant.instance
     var counter = 1
-    func timer()
+    func timer(sceneView: ARSCNView)
     {
         var timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             (_) in
-            
+
+            if sceneView.scene.rootNode.childNode(withName: "plant", recursively: false) != nil
+            {
+                let counter:Float = (Float(self.testPlant.plantLevel) / 10000)
+                let plant = (sceneView.scene.rootNode.childNode(withName: "plant", recursively: false))!
+                self.testPlant.xSize = plant.scale.x
+                self.testPlant.ySize = plant.scale.y
+                self.testPlant.zSize = plant.scale.z
+                print(counter)
+
+                plant.scale = SCNVector3Make(Float(self.testPlant.xSize + counter), Float(self.testPlant.xSize + counter), Float(self.testPlant.xSize + counter))
+            }
             if self.counter == 5
             {
+               
                 self.wateringUpdate(usedWater: -2)
                 self.plantStatusUpdate()
                 self.counter = 1
@@ -58,13 +71,13 @@ class Time
         }
         func addPests(){
             let pest = Pest(names: .FireAnt)
-            if self.testPlant.spawPestsTime == nil
+            if self.testPlant.spawnPestsTime == nil
             {
                pest.CalculateTime()
             }
-            if self.testPlant.spawPestsTime! > 0
+            if self.testPlant.spawnPestsTime! > 0
             {
-                self.testPlant.spawPestsTime! -= 1
+                self.testPlant.spawnPestsTime! -= 1
             }else
             {
                 if  Player.instance.activeUpgradesList.keys.contains(Upgrade.InsectRepelent) == false
@@ -77,7 +90,7 @@ class Time
                     pest.CalculateTime()
                 }
             }
-            print(self.testPlant.spawPestsTime ?? "no value")
+            print(self.testPlant.spawnPestsTime ?? "no value")
         }
     func CalculateCurrentStatus(time: [Int]) {
         let date = Date()
@@ -108,7 +121,7 @@ class Time
     {
         for i in 0...counters
         {
-            if i == 60
+            if i == 180
             {
                 self.wateringUpdate(usedWater: -2)
                 self.plantStatusUpdate()

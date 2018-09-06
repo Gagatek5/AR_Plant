@@ -11,11 +11,11 @@ import ARKit
 import GoogleMobileAds
 
 class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
+
     
     @IBOutlet weak var addRiseUpButtonO: UIButton!
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
-    var counter:Float = 0.0
     let test = Time.instance
     let testPlant = Plant.instance
     
@@ -32,12 +32,16 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
 
-        test.timer()
-
-        let requestBigAd = GADRequest()
-        GADRewardBasedVideoAd.sharedInstance().delegate = self 
-        requestBigAd.testDevices = [kGADSimulatorID]
-        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/6565369937")
+        test.timer(sceneView: sceneView)
+        
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let request = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        request.testDevices = [kGADSimulatorID, "8e48301d1f7226954ef508429ed14001"]
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-5264924694211893/6565369937")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,92 +85,49 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
         
         
     }
+    
     @IBAction func addStalk(_ sender: Any) {
         
-        let scene = SCNScene(named: "Models.scnassets/plant.scn")
-        let node = (scene?.rootNode.childNode(withName: "stalk", recursively: false))!
-        let plant = (self.sceneView.scene.rootNode.childNode(withName: "plant", recursively: false)?.position)!
-        node.position = SCNVector3(plant.x, (plant.y + 0.07 + counter), plant.z)
-        //node.eulerAngles = SCNVector3
-        self.sceneView.scene.rootNode.addChildNode(node)
-        counter += 0.02
+//        let counter:Float = 0.0002
+//        let plant = (self.sceneView.scene.rootNode.childNode(withName: testPlant.plantNodeString, recursively: false))!
+//        plant.scale = SCNVector3Make(Float(plant.scale.x + counter), Float(plant.scale.y + counter), Float(plant.scale.z + counter))
+
     }
-    func autoRiseUp(){
-        let scene = SCNScene(named: "Models.scnassets/plant.scn")
-        let node = (scene?.rootNode.childNode(withName: "stalk", recursively: false))!
-        let plant = (self.sceneView.scene.rootNode.childNode(withName: "plant", recursively: false)?.position)!
-        node.position = SCNVector3(plant.x, (plant.y + 0.07 + counter), plant.z)
-        //node.eulerAngles = SCNVector3
-        self.sceneView.scene.rootNode.addChildNode(node)
-        counter += 0.02
-        sceneView.scene.rootNode.addChildNode(node)
-        
-        lastNode.append(node)
-    }
+
     func autoRiseDown(){
-        lastNode.last??.removeFromParentNode()
+        //lastNode.last??.removeFromParentNode()
         
     }
     
     func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+        
+    }
+    @IBAction func removeNode(_ sender: Any) {
+        sceneView.scene.rootNode.removeFromParentNode()
     }
     
     @IBAction func removePests(_ sender: Any) {
+        
         if !Plant.instance.pests.isEmpty
         {
             if GADRewardBasedVideoAd.sharedInstance().isReady == true {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-                
             }
         }else{
             let alert = UIAlertController(title: "uffff....", message: "Nie ma robaków do usunięcia", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        
         Plant.instance.pests.removeAll()
         print(Plant.instance.pests)
         
-    }
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
-        print("Reward based video ad is received.")
-    }
-    
-    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Opened reward based video ad.")
-    }
-    
-    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad started playing.")
-    }
-    
-    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad has completed.")
-    }
-    
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad is closed.")
-    }
-    
-    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad will leave application.")
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didFailToLoadWithError error: Error) {
-        print("Reward based video ad failed to load. \(error)")
     }
 
 }

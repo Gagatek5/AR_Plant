@@ -25,7 +25,7 @@ class ShopVC: UIViewController, GADRewardBasedVideoAdDelegate {
         updateView()
         let requestBigAd = GADRequest()
         GADRewardBasedVideoAd.sharedInstance().delegate = self
-        requestBigAd.testDevices = [kGADSimulatorID]
+        requestBigAd.testDevices = [kGADSimulatorID, "8e48301d1f7226954ef508429ed14001"]
         GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/6565369937")
     }
     @IBAction func BuyManure(_ sender: Any) {

@@ -39,6 +39,7 @@
                                 <state key="normal" title="Engine"/>
                                 <connections>
                                     <action selector="DeleteARNode:" destination="kg2-Uk-qnO" eventType="touchUpInside" id="7Bs-5b-Qhm"/>
+                                    <action selector="removeNode:" destination="kg2-Uk-qnO" eventType="touchUpInside" id="0ht-IL-FjK"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="qmt-xP-k7f"/>
                                 </connections>
                             </button>
@@ -237,13 +238,25 @@
                                     <action selector="resetPlant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bmu-ee-V9h"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJL-H1-o6r">
+                                <rect key="frame" x="9" y="710" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qFJ-be-pv1"/>
+                                </constraints>
+                                <state key="normal" title="add pest"/>
+                                <connections>
+                                    <action selector="addPest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pA4-Nk-FrW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fJL-H1-o6r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="1yk-yf-AN6"/>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3ef-cM-09a"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9bQ-18-tmQ"/>
                             <constraint firstItem="yEE-wt-8OA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Ag3-dB-c87"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3tO-ac-M1b" secondAttribute="trailing" constant="164" id="C2Y-3D-eMh"/>
+                            <constraint firstItem="bfq-R4-eE1" firstAttribute="top" secondItem="fJL-H1-o6r" secondAttribute="bottom" constant="8" id="DwH-KU-TPt"/>
                             <constraint firstItem="K4H-ga-Rwb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I21-To-WZ1"/>
                             <constraint firstItem="bfq-R4-eE1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="QoD-aB-3Wn"/>
                             <constraint firstItem="cDg-kt-Ud5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uy7-eg-Tkh"/>

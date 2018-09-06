@@ -21,7 +21,7 @@ class Plant {
     // maksymalny poziom nawodnienia
     var maxWatering = 150
     // minimalny poziom nawodnienia
-    let minWatering = 0
+//    let minWatering = 0
     // ogolna kondycja rosliny
     var health: Int
     // maksymalna kondycja rosliny
@@ -43,7 +43,15 @@ class Plant {
     // aktualny level roslinki
     var plantLevel: Int
     // czas dodania szkodnika
-    var spawPestsTime: Int? = nil
+    var spawnPestsTime: Int? = nil
+    // wielkosc x node
+    var xSize:Float = 0.0
+    // wielkosc y node
+    var ySize:Float = 0.0
+    // wielkosc z node
+    var zSize:Float =  0.0
+    
+    
 
     static let instance = Plant(name: .bonsai)
     private init(name: Plants) {
@@ -55,6 +63,7 @@ class Plant {
             insolation =  plantStatusDefaults.value(forKey: "insolation") as! Int
             rise = plantStatusDefaults.value(forKey: "rise") as! Int
             plantLevel = plantStatusDefaults.value(forKey: "plantLevel") as! Int
+            spawnPestsTime = plantStatusDefaults.value(forKey: "spawnPestsTime") as? Int
             let pests = plantStatusDefaults.value(forKey: "pests") as! [String]
             
             for pest in pests
@@ -177,7 +186,11 @@ class Plant {
     }
     func levelUp(rise: Int) -> Int {
        let result = rise/10
-        
+        p.add(value: result, type: .PlantCoin)
+        if result<=0
+        {
+            return 1
+        }
         return result
     }
     func currentStatus(plant: Plant) -> PlantStatus {

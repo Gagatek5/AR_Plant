@@ -28,6 +28,7 @@ class SaveCurrentStatus
         StatusDefaults.set(Plant.instance.insolation, forKey: "insolation")
         StatusDefaults.set(Plant.instance.rise, forKey: "rise")
         StatusDefaults.set(Plant.instance.plantLevel, forKey: "plantLevel")
+        StatusDefaults.set(Plant.instance.spawnPestsTime, forKey: "spawnPestsTime")
         
     }
     
@@ -47,10 +48,10 @@ class SaveCurrentStatus
         StatusDefaults.set(Player.instance.upgradesList, forKey: "upgradeList")
         StatusDefaults.set(activeUpgradeStatus, forKey: "activeUpgradeList")
         
-        print(StatusDefaults.value(forKey: "coin"))
-        print(StatusDefaults.value(forKey: "seed"))
-        print(StatusDefaults.value(forKey: "upgradeList") as! [Int])
-        print(StatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int])
+//        print(StatusDefaults.value(forKey: "coin"))
+//        print(StatusDefaults.value(forKey: "seed"))
+//        print(StatusDefaults.value(forKey: "upgradeList") as! [Int])
+//        print(StatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int])
         
         
     }
@@ -119,7 +120,7 @@ class SaveCurrentStatus
         let currentDate = [month, day, hour, minutes, seconds]
         
         StatusDefaults.set(currentDate, forKey: "currentDate")
-        print(StatusDefaults.value(forKey: "currentDate"))
+//        print(StatusDefaults.value(forKey: "currentDate"))
     }
     
 }
