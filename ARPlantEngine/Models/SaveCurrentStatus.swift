@@ -8,16 +8,13 @@
 
 import Foundation
 
-class SaveCurrentStatus
-{
+class SaveCurrentStatus {
     let StatusDefaults = UserDefaults.standard
     
-    func savePlantStatus()
-    {
+    func savePlantStatus() {
         var pestsName:[String] = []
         
-        for pest in Plant.instance.pests
-        {
+        for pest in Plant.instance.pests {
             pestsName.append(pest.name)
         }
         
@@ -32,13 +29,10 @@ class SaveCurrentStatus
         
     }
     
-    func savePlayerStatus()
-    {
+    func savePlayerStatus() {
         var activeUpgradeStatus:[ String:Int] = [:]
-        if Player.instance.activeUpgradesList.count > 0
-        {
-            for item in Player.instance.activeUpgradesList
-            {
+        if Player.instance.activeUpgradesList.count > 0 {
+            for item in Player.instance.activeUpgradesList {
                 activeUpgradeStatus.updateValue(item.value, forKey: convertToString(upgrade:item.key))
             }
         }
@@ -48,10 +42,10 @@ class SaveCurrentStatus
         StatusDefaults.set(Player.instance.upgradesList, forKey: "upgradeList")
         StatusDefaults.set(activeUpgradeStatus, forKey: "activeUpgradeList")
         
-//        print(StatusDefaults.value(forKey: "coin"))
-//        print(StatusDefaults.value(forKey: "seed"))
-//        print(StatusDefaults.value(forKey: "upgradeList") as! [Int])
-//        print(StatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int])
+        //        print(StatusDefaults.value(forKey: "coin"))
+        //        print(StatusDefaults.value(forKey: "seed"))
+        //        print(StatusDefaults.value(forKey: "upgradeList") as! [Int])
+        //        print(StatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int])
         
         
     }
@@ -82,8 +76,7 @@ class SaveCurrentStatus
         }
     }
     
-    func convertNameToPlants(plantName: String)-> Plants
-    {
+    func convertNameToPlants(plantName: String)-> Plants {
         switch plantName{
         case "Sunflower":
             return .sunflower
@@ -96,8 +89,7 @@ class SaveCurrentStatus
         }
     }
     
-    func convertNameToPests(pestName: String)-> Pests
-    {
+    func convertNameToPests(pestName: String)-> Pests {
         switch pestName{
         case "Fire ant":
             return .FireAnt
@@ -108,7 +100,7 @@ class SaveCurrentStatus
         }
     }
     
-    func saveDate(){
+    func saveDate() {
         let date = Date()
         let calendar = Calendar.current
         let month = calendar.component(.month, from: date)
@@ -120,7 +112,6 @@ class SaveCurrentStatus
         let currentDate = [month, day, hour, minutes, seconds]
         
         StatusDefaults.set(currentDate, forKey: "currentDate")
-//        print(StatusDefaults.value(forKey: "currentDate"))
+        //        print(StatusDefaults.value(forKey: "currentDate"))
     }
-    
 }

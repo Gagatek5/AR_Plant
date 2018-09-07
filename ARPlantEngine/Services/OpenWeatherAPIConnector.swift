@@ -18,21 +18,24 @@ class OpenWeatherAPIConnector
     let headers: [String:String] = ["appid" : "ad4e521f54b155390c178acc59582f10"]
     
     func getData(longitude: Double, latitiude: Double){
-    let URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitiude)&lon=\(longitude)"
-    Alamofire.request(URL, parameters: headers).responseJSON {
-    response in
-        
-        let json = JSON(response.result.value!)
-        
-            
-        let day = WeatherDayInfo.init(weather: [Weather.init(main: json["weather"][0]["main"].string!) ])
-            print(day)
-  
+        let URL = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitiude)&lon=\(longitude)"
+        Alamofire.request(URL, parameters: headers)
+            .responseJSON { response in
+                
+                // check for errors
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("ERROR! Cos poszlo nie tak!")
+                    print(response.result.error!)
+                    return
+                }
+                
+                let json = JSON(response.result.value)
+                let day = WeatherDayInfo.init(weather: [Weather.init(main: json["weather"][0]["main"].string!) ])
+                print(day)
         }
-        
-        }
-    
     }
+}
 
 enum HttpRequestType {
     case POST
