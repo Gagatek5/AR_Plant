@@ -11,7 +11,7 @@ import Foundation
 class SaveCurrentStatus {
     let StatusDefaults = UserDefaults.standard
     
-    func savePlantStatus() {
+   private func savePlantStatus() {
         var pestsName:[String] = []
         
         for pest in Plant.instance.pests {
@@ -26,11 +26,11 @@ class SaveCurrentStatus {
         StatusDefaults.set(Plant.instance.rise, forKey: "rise")
         StatusDefaults.set(Plant.instance.plantLevel, forKey: "plantLevel")
         StatusDefaults.set(Plant.instance.spawnPestsTime, forKey: "spawnPestsTime")
-        
     }
     
-    func savePlayerStatus() {
+    private func savePlayerStatus() {
         var activeUpgradeStatus:[ String:Int] = [:]
+        
         if Player.instance.activeUpgradesList.count > 0 {
             for item in Player.instance.activeUpgradesList {
                 activeUpgradeStatus.updateValue(item.value, forKey: convertToString(upgrade:item.key))
@@ -41,17 +41,23 @@ class SaveCurrentStatus {
         StatusDefaults.set(Player.instance.seed.quantity, forKey: "seed")
         StatusDefaults.set(Player.instance.upgradesList, forKey: "upgradeList")
         StatusDefaults.set(activeUpgradeStatus, forKey: "activeUpgradeList")
+    }
+    
+    private func saveDate() {
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
         
-        //        print(StatusDefaults.value(forKey: "coin"))
-        //        print(StatusDefaults.value(forKey: "seed"))
-        //        print(StatusDefaults.value(forKey: "upgradeList") as! [Int])
-        //        print(StatusDefaults.value(forKey: "activeUpgradeList") as! [String:Int])
+        let currentDate = [month, day, hour, minutes, seconds]
         
-        
+        StatusDefaults.set(currentDate, forKey: "currentDate")
     }
     
     func convertToString(upgrade: Upgrade ) -> String {
-        
         switch upgrade {
         case .InsectRepelent :
             return "InsectRepelent"
@@ -63,7 +69,6 @@ class SaveCurrentStatus {
     }
     
     func convertFromString(upgrade: String ) -> Upgrade {
-        
         switch upgrade {
         case  "InsectRepelent":
             return .InsectRepelent
@@ -99,19 +104,10 @@ class SaveCurrentStatus {
             return .FireAnt
         }
     }
-    
-    func saveDate() {
-        let date = Date()
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        
-        let currentDate = [month, day, hour, minutes, seconds]
-        
-        StatusDefaults.set(currentDate, forKey: "currentDate")
-        //        print(StatusDefaults.value(forKey: "currentDate"))
+    func saveStatus() {
+        self.savePlayerStatus()
+        self.savePlantStatus()
+        self.saveDate()
     }
 }
+

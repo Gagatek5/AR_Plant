@@ -10,54 +10,35 @@ import UIKit
 import ARKit
 import GoogleMobileAds
 
-class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
-
+class ARVC: UIViewController, ARSCNViewDelegate {
     
-    @IBOutlet weak var addRiseUpButtonO: UIButton!
     @IBOutlet weak var sceneView: ARSCNView!
+    
     let configuration = ARWorldTrackingConfiguration()
+    
     let test = Time.instance
     let testPlant = Plant.instance
     
-    var updateTimer: Timer?
     var level = 0
     var lastNode: [SCNNode?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        prepareView()
+    }
+    
+    func prepareView(){
         self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.configuration.planeDetection = .horizontal
         self.sceneView.session.run(configuration)
         self.registerGestureRecognizers()
         self.sceneView.autoenablesDefaultLighting = true
-
+        
         test.timer(sceneView: sceneView)
-        
-       
     }
-    override func viewDidAppear(_ animated: Bool) {
-        let request = GADRequest()
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
-        request.testDevices = [kGADSimulatorID, "8e48301d1f7226954ef508429ed14001"]
-        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-5264924694211893/6565369937")
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func DeleteARNode(_ sender: Any) {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode() }
-    }
-    
+
     func registerGestureRecognizers() {
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        //let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
-        //self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -65,7 +46,8 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
         let sceneView = sender.view as! ARSCNView
         let tapLocation = sender.location(in: sceneView)
         let hitTest = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-        if !hitTest.isEmpty {
+        if !hitTest.isEmpty
+        {
             self.addItem(hitTestResult: hitTest.first!)
         }
     }
@@ -80,56 +62,76 @@ class ARVC: UIViewController, ARSCNViewDelegate, GADRewardBasedVideoAdDelegate {
             node.position = SCNVector3(thirdColumn.x, thirdColumn.y, thirdColumn.z)
             
             self.sceneView.scene.rootNode.addChildNode(node)
-            addRiseUpButtonO.isEnabled = true
         }
-        
-        
     }
-    
-    @IBAction func addStalk(_ sender: Any) {
-        
-//        let counter:Float = 0.0002
-//        let plant = (self.sceneView.scene.rootNode.childNode(withName: testPlant.plantNodeString, recursively: false))!
-//        plant.scale = SCNVector3Make(Float(plant.scale.x + counter), Float(plant.scale.y + counter), Float(plant.scale.z + counter))
-
-    }
-
-    func autoRiseDown(){
-        //lastNode.last??.removeFromParentNode()
-        
-    }
-    
-    func randomNumber(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
-        
-        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
-        
-    }
+ 
     @IBAction func removeNode(_ sender: Any) {
         sceneView.scene.rootNode.removeFromParentNode()
     }
     
-    @IBAction func removePests(_ sender: Any) {
+   
+    @IBAction func DeleteARNode(_ sender: Any) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+            
+        }
+    }
+}
+
+extension ARVC: GADRewardBasedVideoAdDelegate {
+    override func viewDidAppear(_ animated: Bool) {
+        let requestBigAd = GADRequest()
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        requestBigAd.testDevices = [kGADSimulatorID,"8e48301d1f7226954ef508429ed14001"]
+        GADRewardBasedVideoAd.sharedInstance().load(requestBigAd, withAdUnitID: "ca-app-pub-5264924694211893/4676637417")
         
+    }
+    @IBAction func removePests(_ sender: Any) {
         if !Plant.instance.pests.isEmpty
         {
             if GADRewardBasedVideoAd.sharedInstance().isReady == true {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
             }
-        }else{
+        }
+        else
+        {
             let alert = UIAlertController(title: "uffff....", message: "Nie ma robaków do usunięcia", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        
         Plant.instance.pests.removeAll()
-        print(Plant.instance.pests)
-        
     }
-
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load. \(error)")
+    }
 }
 
 

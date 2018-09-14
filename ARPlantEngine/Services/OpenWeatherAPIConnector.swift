@@ -31,7 +31,7 @@ class OpenWeatherAPIConnector
                 }
                 
                 let json = JSON(response.result.value)
-                let day = WeatherDayInfo.init(weather: [Weather.init(main: json["weather"][0]["main"].string!) ])
+                let day = WeatherDayInfo.init(weather: [Weather.init(main: json["weather"][0]["main"].string!)])
                 print(day)
         }
     }

@@ -105,14 +105,17 @@ class Time {
         let seconds = calendar.component(.second, from: date)
         
         let currentDate = [month, day, hour, minutes, seconds]
+        
         let multiplyArray = [2592000,86400,3600,60,1]
         var subtractionList:[Int] = []
         var result = 0
+        
         for i in 0...time.count-1
         {
             subtractionList.append(currentDate[i] - time[i])
             print(subtractionList[i])
         }
+        
         for i in 0...subtractionList.count-1
         {
             result += subtractionList[i] * multiplyArray[i]

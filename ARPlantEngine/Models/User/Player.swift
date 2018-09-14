@@ -23,6 +23,7 @@ class Player {
     let converter = SaveCurrentStatus()
     
     static let instance = Player()
+    
     private init() {
         if playerStatusDefaults.value(forKey: "coin") != nil
         {

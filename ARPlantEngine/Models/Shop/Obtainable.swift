@@ -8,7 +8,6 @@
 
 import Foundation
 
-// klasa nadrzedna dla wszystkich rzeczy mozliwych do kupienia
 protocol Obtainable {
     
     var name: String { get set }

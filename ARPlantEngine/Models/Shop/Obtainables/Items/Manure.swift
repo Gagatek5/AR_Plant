@@ -34,6 +34,4 @@ struct Manure: Upgrades {
         self.currency = currency
     }
     
-    // dodaj do listy upgrade'ow zwiazanych z rosnieciem
-    
 }

@@ -33,8 +33,6 @@ struct WeatherDayInfo {
         id = nil
         name = nil
         cod = nil
-        
-        
     }
 }
 

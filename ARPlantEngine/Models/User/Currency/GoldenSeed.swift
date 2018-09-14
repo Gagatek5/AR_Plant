@@ -16,19 +16,4 @@ class GoldenSeed: Currency {
         self.quantity = 5
     }
     
-//    internal func add(value: Int) -> Int {
-//        return self.quantity + value
-//    }
-//
-//    func pay(price: Int) -> Bool {
-//
-//        if self.quantity >= price
-//        {
-//            self.quantity = self.quantity - price
-//            return true
-//        } else
-//        {
-//            return false
-//        }
-//    }
 }

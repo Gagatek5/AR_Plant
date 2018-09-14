@@ -16,20 +16,5 @@ class PlantCoin: Currency {
         self.quantity = 100
     }
     
-//    internal func add(value: Int) -> Int {
-//        return self.quantity + value
-//    }
-//    
-//    func pay(price: Int) -> Bool {
-//        
-//        if self.quantity >= price
-//        {
-//            self.quantity = self.quantity - price
-//            return true
-//        } else
-//        {
-//            return false
-//        }
-//    }
 }
 
